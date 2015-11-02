@@ -12,7 +12,7 @@
 
 @interface AftArticleController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *articleTextView;
+@property (weak, nonatomic) IBOutlet UIWebView *articleWebView;
 
 @end
 
@@ -34,9 +34,7 @@
             NSLog(@"============ 来源:%@ ============",[obj objectForKey:@"refer"]);
         }
         BmobObject *obj = array[array.count - 1];
-        NSString *parseString = [self parseTheRawString:[obj objectForKey:@"content"]];
-        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:parseString];
-        weakSelf.articleTextView.attributedText = attributedString;
+        [weakSelf.articleWebView loadHTMLString:[obj objectForKey:@"content"] baseURL:nil];
     }];
 }
 

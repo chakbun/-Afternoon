@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DFD0A6231BE4FE2C00AF7793 /* 国际歌日本语.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFD0A6221BE4FE2C00AF7793 /* 国际歌日本语.mp3 */; };
 		DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD4025F1BDBC653009EC2BB /* Main.storyboard */; };
 		DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFD402621BDBC653009EC2BB /* Assets.xcassets */; };
 		DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD402641BDBC653009EC2BB /* LaunchScreen.storyboard */; };
@@ -127,7 +126,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DFD0A6221BE4FE2C00AF7793 /* 国际歌日本语.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "国际歌日本语.mp3"; sourceTree = "<group>"; };
 		DFD402531BDBC653009EC2BB /* Afternoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Afternoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD402601BDBC653009EC2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFD402621BDBC653009EC2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -468,7 +466,6 @@
 		DFD4027A1BDBD1BA009EC2BB /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				DFD0A6221BE4FE2C00AF7793 /* 国际歌日本语.mp3 */,
 				DFD402A51BDD1710009EC2BB /* AFNetworking */,
 				DFD402CE1BDD1710009EC2BB /* pop */,
 				DFD403061BDD1710009EC2BB /* MagicalRecord */,
@@ -868,7 +865,6 @@
 				DFD403911BDD1710009EC2BB /* pop-osx-Info.plist in Resources */,
 				DFD4026F1BDBC733009EC2BB /* Info.plist in Resources */,
 				DFD403C81BDD1710009EC2BB /* LICENSE in Resources */,
-				DFD0A6231BE4FE2C00AF7793 /* 国际歌日本语.mp3 in Resources */,
 				DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */,
 				DFD403901BDD1710009EC2BB /* pop-ios-Info.plist in Resources */,
 				DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */,

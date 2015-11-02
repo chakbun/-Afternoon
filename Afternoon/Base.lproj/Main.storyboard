@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="54a-ql-7H9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="54a-ql-7H9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -69,27 +69,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nZ5-Na-Vgc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDm-cB-wyj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nZ5-Na-Vgc" firstAttribute="top" secondItem="0Hp-7e-3QP" secondAttribute="bottom" id="YbY-6c-gf1"/>
-                            <constraint firstItem="UIN-31-0Va" firstAttribute="top" secondItem="nZ5-Na-Vgc" secondAttribute="bottom" id="pig-3o-Wie"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nZ5-Na-Vgc" secondAttribute="trailing" constant="-20" id="x3I-vf-ICl"/>
-                            <constraint firstItem="nZ5-Na-Vgc" firstAttribute="leading" secondItem="DWI-4A-ZOO" secondAttribute="leadingMargin" constant="-20" id="yTd-ln-Vyf"/>
+                            <constraint firstItem="HDm-cB-wyj" firstAttribute="top" secondItem="0Hp-7e-3QP" secondAttribute="bottom" constant="-64" id="0Zm-5S-wwS"/>
+                            <constraint firstItem="UIN-31-0Va" firstAttribute="top" secondItem="HDm-cB-wyj" secondAttribute="bottom" id="lv0-Mu-eB4"/>
+                            <constraint firstItem="HDm-cB-wyj" firstAttribute="leading" secondItem="DWI-4A-ZOO" secondAttribute="leadingMargin" constant="-20" id="vjc-Uj-9bv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HDm-cB-wyj" secondAttribute="trailing" constant="-20" id="wro-OE-dha"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="dt5-B2-9Xk"/>
                     <connections>
-                        <outlet property="articleTextView" destination="nZ5-Na-Vgc" id="4ml-U6-ZBJ"/>
+                        <outlet property="articleWebView" destination="HDm-cB-wyj" id="gdF-UI-If1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQX-dW-Hau" userLabel="First Responder" sceneMemberID="firstResponder"/>

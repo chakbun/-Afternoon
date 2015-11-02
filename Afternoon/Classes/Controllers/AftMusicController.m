@@ -10,6 +10,7 @@
 #import <BmobSDK/Bmob.h>
 #import <BmobSDK/BmobProFile.h>
 #import <AVFoundation/AVFoundation.h>
+#import "AFHTTPRequestOperationManager.h"
 
 @interface AftMusicController ()
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
@@ -33,33 +34,35 @@
         }
         BmobObject *obj = array[array.count - 1];
         BmobFile *musicFile = [obj objectForKey:@"originMusic"];
-//        NSLog(@"============ %@ ============",musicFile);
         
-        NSError *musicError = nil;
-        NSLog(@"============ url:%@ ============",musicFile.url);
+        NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , @"localMusic"];
+        
+        dispatch_group_t loadMusicGroup = dispatch_group_create();
+        
+        dispatch_group_async(loadMusicGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSURL *url = [[NSURL alloc] initWithString:musicFile.url];
+            NSData *audioData = [NSData dataWithContentsOfURL:url];
+            
+            //将数据保存到本地指定位置
+            BOOL writeResult = [audioData writeToFile:filePath atomically:YES];
+            
+            NSLog(@"============ 文件写入结果:%d ============",writeResult);
+        });
+        
+        dispatch_group_notify(loadMusicGroup, dispatch_get_main_queue(), ^{
+            NSLog(@"============ 音乐下载完成啦！ ============");
+            NSError *musicError = nil;
+            //播放本地音乐
+            NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+            weakSelf.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&musicError];
+            if (!musicError) {
+                NSLog(@"============ 准备播放 ============");
+                [weakSelf.audioPlayer prepareToPlay];
+                [weakSelf.audioPlayer play];
+            }
+        });
 
-//        NSURL *url = [[NSURL alloc] initWithString:musicFile.url];
-//        NSData *audioData = [NSData dataWithContentsOfURL:url];
-//        
-//        //将数据保存到本地指定位置
-//        NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//        NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , @"temp"];
-//        BOOL writeResult = [audioData writeToFile:filePath atomically:YES];
-        
-        //播放本地音乐
-        NSString *localPath = [[NSBundle mainBundle] pathForResource:@"国际歌日本语" ofType:@"mp3"];
-        NSURL *fileURL = [NSURL fileURLWithPath:localPath];
-        
-        weakSelf.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&musicError];
-//        audioPlayer.volume = 1.0;
-        if (!musicError) {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                BOOL result2 = [weakSelf.audioPlayer prepareToPlay];
-                BOOL result1 = [weakSelf.audioPlayer play];
-                NSLog(@"============ 444 ============");
-            });
-
-        }
     }];
     
     
