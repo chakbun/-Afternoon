@@ -9,10 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Afternoon4Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Notification - Afternoon4Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>DFD402521BDBC653009EC2BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFDCC8371BE84643000B945D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
