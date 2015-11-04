@@ -131,6 +131,10 @@
 		DFDCC8531BE84644000B945D /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8521BE84644000B945D /* NotificationController.m */; };
 		DFDCC8551BE84644000B945D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC8541BE84644000B945D /* Assets.xcassets */; };
 		DFDCC8591BE84644000B945D /* Afternoon4Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DFDCC8381BE84643000B945D /* Afternoon4Watch.app */; };
+		DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */; };
+		DFDCC86E1BE8AF3D000B945D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC86C1BE8AF3D000B945D /* pause.png */; };
+		DFDCC86F1BE8AF3D000B945D /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC86D1BE8AF3D000B945D /* start.png */; };
+		DFDCC8711BE8B009000B945D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC8701BE8B009000B945D /* avatar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -425,6 +429,11 @@
 		DFDCC8521BE84644000B945D /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		DFDCC8541BE84644000B945D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFDCC8561BE84644000B945D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFDCC8671BE8AAC0000B945D /* AftAblumRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAblumRotateView.h; sourceTree = "<group>"; };
+		DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAblumRotateView.m; sourceTree = "<group>"; };
+		DFDCC86C1BE8AF3D000B945D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		DFDCC86D1BE8AF3D000B945D /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		DFDCC8701BE8B009000B945D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -481,6 +490,7 @@
 		DFD402551BDBC653009EC2BB /* Afternoon */ = {
 			isa = PBXGroup;
 			children = (
+				DFDCC86A1BE8AF3D000B945D /* Resource */,
 				DFD402951BDBE275009EC2BB /* Framework */,
 				DFD4027A1BDBD1BA009EC2BB /* Lib */,
 				DFD402711BDBC73A009EC2BB /* App */,
@@ -514,6 +524,7 @@
 		DFD402751BDBC779009EC2BB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DFDCC8661BE8A82E000B945D /* Views */,
 				DFD402761BDBC779009EC2BB /* Controllers */,
 			);
 			path = Classes;
@@ -913,6 +924,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DFDCC8661BE8A82E000B945D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DFDCC8671BE8AAC0000B945D /* AftAblumRotateView.h */,
+				DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DFDCC86A1BE8AF3D000B945D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DFDCC86B1BE8AF3D000B945D /* Images */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DFDCC86B1BE8AF3D000B945D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DFDCC8701BE8B009000B945D /* avatar.png */,
+				DFDCC86C1BE8AF3D000B945D /* pause.png */,
+				DFDCC86D1BE8AF3D000B945D /* start.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1018,12 +1056,15 @@
 			files = (
 				DFD403911BDD1710009EC2BB /* pop-osx-Info.plist in Resources */,
 				DFD4026F1BDBC733009EC2BB /* Info.plist in Resources */,
+				DFDCC86F1BE8AF3D000B945D /* start.png in Resources */,
 				DFD403C81BDD1710009EC2BB /* LICENSE in Resources */,
 				DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */,
 				DFD403901BDD1710009EC2BB /* pop-ios-Info.plist in Resources */,
+				DFDCC86E1BE8AF3D000B945D /* pause.png in Resources */,
 				DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */,
 				DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */,
 				DFD403861BDD1710009EC2BB /* LICENSE in Resources */,
+				DFDCC8711BE8B009000B945D /* avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,6 +1161,7 @@
 				DFD403A61BDD1710009EC2BB /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				DFD403B21BDD1710009EC2BB /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				DFD403A41BDD1710009EC2BB /* MagicalImportFunctions.m in Sources */,
+				DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */,
 				DFD403AF1BDD1710009EC2BB /* NSManagedObject+MagicalRequests.m in Sources */,
 				DFD403CC1BDD1710009EC2BB /* SDWebImageCompat.m in Sources */,
 				DFD403A51BDD1710009EC2BB /* NSAttributeDescription+MagicalDataImport.m in Sources */,
