@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -107,32 +108,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="iye-Sb-lxx">
-                                <rect key="frame" x="70" y="114" width="460" height="460"/>
+                                <rect key="frame" x="50" y="114" width="500" height="500"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iye-Sb-lxx" secondAttribute="height" multiplier="1:1" id="T40-IH-DAg"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="玩笑" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmF-YY-qtw">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="2mZ-mC-7CJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2mZ-mC-7CJ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="2mZ-mC-7CJ"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刘瑞琦" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wl-TI-WTn">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
@@ -153,29 +134,66 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAz-eF-dT9">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="start.png"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="50" y="431" width="44" height="44"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="玩笑" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmF-YY-qtw">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2mZ-mC-7CJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2mZ-mC-7CJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="2mZ-mC-7CJ"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pUD-nQ-UdY">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
+                                <animations/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="50" y="495" width="300" height="2"/>
+                                </variation>
+                            </progressView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="iye-Sb-lxx" secondAttribute="leading" constant="-50" id="0j0-ff-9bV"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="iye-Sb-lxx" secondAttribute="leading" constant="-30" id="0j0-ff-9bV"/>
                             <constraint firstItem="5wl-TI-WTn" firstAttribute="top" secondItem="wmF-YY-qtw" secondAttribute="bottom" constant="8" id="1Dm-AW-6s5"/>
                             <constraint firstItem="5wl-TI-WTn" firstAttribute="leading" secondItem="wmF-YY-qtw" secondAttribute="leading" id="2pC-vk-58w"/>
+                            <constraint firstItem="wmF-YY-qtw" firstAttribute="trailing" secondItem="iye-Sb-lxx" secondAttribute="trailing" id="FRA-F0-i6R"/>
                             <constraint firstItem="wmF-YY-qtw" firstAttribute="leading" secondItem="Qhu-7d-WXI" secondAttribute="leadingMargin" constant="50" id="Yfy-ik-xBi"/>
                             <constraint firstItem="wmF-YY-qtw" firstAttribute="top" secondItem="iye-Sb-lxx" secondAttribute="bottom" constant="8" id="brP-UK-4vY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iye-Sb-lxx" secondAttribute="trailing" constant="50" id="cUz-1n-tcF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iye-Sb-lxx" secondAttribute="trailing" constant="30" id="cUz-1n-tcF"/>
                             <constraint firstItem="5wl-TI-WTn" firstAttribute="trailing" secondItem="wmF-YY-qtw" secondAttribute="trailing" id="eb2-Sp-teC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wmF-YY-qtw" secondAttribute="trailing" constant="50" id="rmX-Ef-vN2"/>
                             <constraint firstItem="iye-Sb-lxx" firstAttribute="top" secondItem="RiB-mi-GD2" secondAttribute="bottom" constant="50" id="sUx-JO-u39"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="wmF-YY-qtw"/>
                                 <exclude reference="5wl-TI-WTn"/>
+                                <exclude reference="GAz-eF-dT9"/>
+                                <exclude reference="wmF-YY-qtw"/>
+                                <exclude reference="pUD-nQ-UdY"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="FRA-F0-i6R"/>
                                 <exclude reference="Yfy-ik-xBi"/>
                                 <exclude reference="brP-UK-4vY"/>
-                                <exclude reference="rmX-Ef-vN2"/>
                                 <exclude reference="1Dm-AW-6s5"/>
                                 <exclude reference="2pC-vk-58w"/>
                                 <exclude reference="eb2-Sp-teC"/>
@@ -183,13 +201,15 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="wmF-YY-qtw"/>
                                 <include reference="5wl-TI-WTn"/>
+                                <include reference="GAz-eF-dT9"/>
+                                <include reference="wmF-YY-qtw"/>
+                                <include reference="pUD-nQ-UdY"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="FRA-F0-i6R"/>
                                 <include reference="Yfy-ik-xBi"/>
                                 <include reference="brP-UK-4vY"/>
-                                <include reference="rmX-Ef-vN2"/>
                                 <include reference="1Dm-AW-6s5"/>
                                 <include reference="2pC-vk-58w"/>
                                 <include reference="eb2-Sp-teC"/>
@@ -205,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hU9-hF-nGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="957"/>
+            <point key="canvasLocation" x="27" y="973"/>
         </scene>
         <!--Item-->
         <scene sceneID="EcR-2U-aQf">
@@ -270,5 +290,6 @@
     </scenes>
     <resources>
         <image name="avatar.png" width="267" height="400"/>
+        <image name="start.png" width="72" height="69"/>
     </resources>
 </document>
