@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF0459791BF32E17000AFF50 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459761BF32E17000AFF50 /* MBProgressHUD.m */; };
+		DF04597A1BF32E17000AFF50 /* VMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459781BF32E17000AFF50 /* VMProgressHUD.m */; };
+		DF04597D1BF33874000AFF50 /* JRProgressHubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF04597C1BF33874000AFF50 /* JRProgressHubManager.m */; };
 		DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD4025F1BDBC653009EC2BB /* Main.storyboard */; };
 		DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFD402621BDBC653009EC2BB /* Assets.xcassets */; };
 		DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD402641BDBC653009EC2BB /* LaunchScreen.storyboard */; };
@@ -123,56 +126,19 @@
 		DFD403D51BDD1710009EC2BB /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD403781BDD1710009EC2BB /* UIImageView+HighlightedWebCache.m */; };
 		DFD403D61BDD1710009EC2BB /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD4037A1BDD1710009EC2BB /* UIImageView+WebCache.m */; };
 		DFD403D71BDD1710009EC2BB /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD4037C1BDD1710009EC2BB /* UIView+WebCacheOperation.m */; };
-		DFDCC83C1BE84644000B945D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC83A1BE84644000B945D /* Interface.storyboard */; };
-		DFDCC83E1BE84644000B945D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC83D1BE84644000B945D /* Assets.xcassets */; };
-		DFDCC8451BE84644000B945D /* Afternoon4Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DFDCC8441BE84644000B945D /* Afternoon4Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DFDCC84D1BE84644000B945D /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC84C1BE84644000B945D /* InterfaceController.m */; };
-		DFDCC8501BE84644000B945D /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC84F1BE84644000B945D /* ExtensionDelegate.m */; };
-		DFDCC8531BE84644000B945D /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8521BE84644000B945D /* NotificationController.m */; };
-		DFDCC8551BE84644000B945D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC8541BE84644000B945D /* Assets.xcassets */; };
-		DFDCC8591BE84644000B945D /* Afternoon4Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DFDCC8381BE84643000B945D /* Afternoon4Watch.app */; };
 		DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */; };
 		DFDCC86E1BE8AF3D000B945D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC86C1BE8AF3D000B945D /* pause.png */; };
 		DFDCC86F1BE8AF3D000B945D /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC86D1BE8AF3D000B945D /* start.png */; };
 		DFDCC8711BE8B009000B945D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC8701BE8B009000B945D /* avatar.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DFDCC8461BE84644000B945D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DFD4024B1BDBC653009EC2BB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DFDCC8431BE84644000B945D;
-			remoteInfo = "Afternoon4Watch Extension";
-		};
-		DFDCC8571BE84644000B945D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DFD4024B1BDBC653009EC2BB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DFDCC8371BE84643000B945D;
-			remoteInfo = Afternoon4Watch;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		DFDCC85F1BE84644000B945D /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				DFDCC8451BE84644000B945D /* Afternoon4Watch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DFDCC8611BE84644000B945D /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				DFDCC8591BE84644000B945D /* Afternoon4Watch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +146,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DF0459751BF32E17000AFF50 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		DF0459761BF32E17000AFF50 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		DF0459771BF32E17000AFF50 /* VMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMProgressHUD.h; sourceTree = "<group>"; };
+		DF0459781BF32E17000AFF50 /* VMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMProgressHUD.m; sourceTree = "<group>"; };
+		DF04597B1BF33874000AFF50 /* JRProgressHubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRProgressHubManager.h; sourceTree = "<group>"; };
+		DF04597C1BF33874000AFF50 /* JRProgressHubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRProgressHubManager.m; sourceTree = "<group>"; };
 		DFD402531BDBC653009EC2BB /* Afternoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Afternoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD402601BDBC653009EC2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFD402621BDBC653009EC2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -415,20 +387,6 @@
 		DFD4037A1BDD1710009EC2BB /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		DFD4037B1BDD1710009EC2BB /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		DFD4037C1BDD1710009EC2BB /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		DFDCC8381BE84643000B945D /* Afternoon4Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Afternoon4Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFDCC83B1BE84644000B945D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		DFDCC83D1BE84644000B945D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DFDCC83F1BE84644000B945D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFDCC8441BE84644000B945D /* Afternoon4Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Afternoon4Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFDCC84A1BE84644000B945D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		DFDCC84B1BE84644000B945D /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		DFDCC84C1BE84644000B945D /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
-		DFDCC84E1BE84644000B945D /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
-		DFDCC84F1BE84644000B945D /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
-		DFDCC8511BE84644000B945D /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		DFDCC8521BE84644000B945D /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		DFDCC8541BE84644000B945D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DFDCC8561BE84644000B945D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFDCC8671BE8AAC0000B945D /* AftAblumRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAblumRotateView.h; sourceTree = "<group>"; };
 		DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAblumRotateView.m; sourceTree = "<group>"; };
 		DFDCC86C1BE8AF3D000B945D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
@@ -457,22 +415,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DFDCC8411BE84644000B945D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF0459741BF32E17000AFF50 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				DF0459751BF32E17000AFF50 /* MBProgressHUD.h */,
+				DF0459761BF32E17000AFF50 /* MBProgressHUD.m */,
+				DF0459771BF32E17000AFF50 /* VMProgressHUD.h */,
+				DF0459781BF32E17000AFF50 /* VMProgressHUD.m */,
+				DF04597B1BF33874000AFF50 /* JRProgressHubManager.h */,
+				DF04597C1BF33874000AFF50 /* JRProgressHubManager.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		DFD4024A1BDBC653009EC2BB = {
 			isa = PBXGroup;
 			children = (
 				DFD402551BDBC653009EC2BB /* Afternoon */,
-				DFDCC8391BE84644000B945D /* Afternoon4Watch */,
-				DFDCC8481BE84644000B945D /* Afternoon4Watch Extension */,
 				DFD402541BDBC653009EC2BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -481,8 +443,6 @@
 			isa = PBXGroup;
 			children = (
 				DFD402531BDBC653009EC2BB /* Afternoon.app */,
-				DFDCC8381BE84643000B945D /* Afternoon4Watch.app */,
-				DFDCC8441BE84644000B945D /* Afternoon4Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -552,6 +512,7 @@
 		DFD4027A1BDBD1BA009EC2BB /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				DF0459741BF32E17000AFF50 /* MBProgressHUD */,
 				DFD402A51BDD1710009EC2BB /* AFNetworking */,
 				DFD402CE1BDD1710009EC2BB /* pop */,
 				DFD403061BDD1710009EC2BB /* MagicalRecord */,
@@ -890,40 +851,6 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		DFDCC8391BE84644000B945D /* Afternoon4Watch */ = {
-			isa = PBXGroup;
-			children = (
-				DFDCC83A1BE84644000B945D /* Interface.storyboard */,
-				DFDCC83D1BE84644000B945D /* Assets.xcassets */,
-				DFDCC83F1BE84644000B945D /* Info.plist */,
-			);
-			path = Afternoon4Watch;
-			sourceTree = "<group>";
-		};
-		DFDCC8481BE84644000B945D /* Afternoon4Watch Extension */ = {
-			isa = PBXGroup;
-			children = (
-				DFDCC84B1BE84644000B945D /* InterfaceController.h */,
-				DFDCC84C1BE84644000B945D /* InterfaceController.m */,
-				DFDCC84E1BE84644000B945D /* ExtensionDelegate.h */,
-				DFDCC84F1BE84644000B945D /* ExtensionDelegate.m */,
-				DFDCC8511BE84644000B945D /* NotificationController.h */,
-				DFDCC8521BE84644000B945D /* NotificationController.m */,
-				DFDCC8541BE84644000B945D /* Assets.xcassets */,
-				DFDCC8561BE84644000B945D /* Info.plist */,
-				DFDCC8491BE84644000B945D /* Supporting Files */,
-			);
-			path = "Afternoon4Watch Extension";
-			sourceTree = "<group>";
-		};
-		DFDCC8491BE84644000B945D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DFDCC84A1BE84644000B945D /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		DFDCC8661BE8A82E000B945D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -966,46 +893,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				DFDCC8581BE84644000B945D /* PBXTargetDependency */,
 			);
 			name = Afternoon;
 			productName = Afternoon;
 			productReference = DFD402531BDBC653009EC2BB /* Afternoon.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DFDCC8371BE84643000B945D /* Afternoon4Watch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DFDCC8601BE84644000B945D /* Build configuration list for PBXNativeTarget "Afternoon4Watch" */;
-			buildPhases = (
-				DFDCC8361BE84643000B945D /* Resources */,
-				DFDCC85F1BE84644000B945D /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DFDCC8471BE84644000B945D /* PBXTargetDependency */,
-			);
-			name = Afternoon4Watch;
-			productName = Afternoon4Watch;
-			productReference = DFDCC8381BE84643000B945D /* Afternoon4Watch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		DFDCC8431BE84644000B945D /* Afternoon4Watch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DFDCC85E1BE84644000B945D /* Build configuration list for PBXNativeTarget "Afternoon4Watch Extension" */;
-			buildPhases = (
-				DFDCC8401BE84644000B945D /* Sources */,
-				DFDCC8411BE84644000B945D /* Frameworks */,
-				DFDCC8421BE84644000B945D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Afternoon4Watch Extension";
-			productName = "Afternoon4Watch Extension";
-			productReference = DFDCC8441BE84644000B945D /* Afternoon4Watch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1019,13 +911,6 @@
 					DFD402521BDBC653009EC2BB = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = SU8WEJ4S57;
-					};
-					DFDCC8371BE84643000B945D = {
-						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = SU8WEJ4S57;
-					};
-					DFDCC8431BE84644000B945D = {
-						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
@@ -1043,8 +928,6 @@
 			projectRoot = "";
 			targets = (
 				DFD402521BDBC653009EC2BB /* Afternoon */,
-				DFDCC8371BE84643000B945D /* Afternoon4Watch */,
-				DFDCC8431BE84644000B945D /* Afternoon4Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1068,23 +951,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DFDCC8361BE84643000B945D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFDCC83E1BE84644000B945D /* Assets.xcassets in Resources */,
-				DFDCC83C1BE84644000B945D /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DFDCC8421BE84644000B945D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFDCC8551BE84644000B945D /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1097,6 +963,7 @@
 				DFD403B91BDD1710009EC2BB /* MagicalRecord+iCloud.m in Sources */,
 				DFD403A91BDD1710009EC2BB /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				DFD403C31BDD1710009EC2BB /* MASViewConstraint.m in Sources */,
+				DF04597A1BF32E17000AFF50 /* VMProgressHUD.m in Sources */,
 				DFD4039D1BDD1710009EC2BB /* POPGeometry.mm in Sources */,
 				DFD403D61BDD1710009EC2BB /* UIImageView+WebCache.m in Sources */,
 				DFD403821BDD1710009EC2BB /* AFURLConnectionOperation.m in Sources */,
@@ -1135,6 +1002,7 @@
 				DFD402791BDBC779009EC2BB /* ViewController.m in Sources */,
 				DFD403AC1BDD1710009EC2BB /* NSManagedObject+MagicalDataImport.m in Sources */,
 				DFD402701BDBC733009EC2BB /* main.m in Sources */,
+				DF04597D1BF33874000AFF50 /* JRProgressHubManager.m in Sources */,
 				DFD403C21BDD1710009EC2BB /* MASViewAttribute.m in Sources */,
 				DFD4039A1BDD1710009EC2BB /* POPCGUtils.mm in Sources */,
 				DFD403B11BDD1710009EC2BB /* NSManagedObjectContext+MagicalRecord.m in Sources */,
@@ -1174,6 +1042,7 @@
 				DFD403AA1BDD1710009EC2BB /* NSString+MagicalDataImport.m in Sources */,
 				DFD403C71BDD1710009EC2BB /* ViewController+MASAdditions.m in Sources */,
 				DFD403C51BDD1710009EC2BB /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				DF0459791BF32E17000AFF50 /* MBProgressHUD.m in Sources */,
 				DFD403981BDD1710009EC2BB /* POPAnimator.mm in Sources */,
 				DFD403C91BDD1710009EC2BB /* README.md in Sources */,
 				DFD403A21BDD1710009EC2BB /* POPVector.mm in Sources */,
@@ -1191,30 +1060,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DFDCC8401BE84644000B945D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFDCC8501BE84644000B945D /* ExtensionDelegate.m in Sources */,
-				DFDCC84D1BE84644000B945D /* InterfaceController.m in Sources */,
-				DFDCC8531BE84644000B945D /* NotificationController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DFDCC8471BE84644000B945D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DFDCC8431BE84644000B945D /* Afternoon4Watch Extension */;
-			targetProxy = DFDCC8461BE84644000B945D /* PBXContainerItemProxy */;
-		};
-		DFDCC8581BE84644000B945D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DFDCC8371BE84643000B945D /* Afternoon4Watch */;
-			targetProxy = DFDCC8571BE84644000B945D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DFD4025F1BDBC653009EC2BB /* Main.storyboard */ = {
@@ -1231,14 +1077,6 @@
 				DFD402651BDBC653009EC2BB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		DFDCC83A1BE84644000B945D /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DFDCC83B1BE84644000B945D /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1280,7 +1118,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1317,7 +1155,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1358,74 +1196,6 @@
 			};
 			name = Release;
 		};
-		DFDCC85A1BE84644000B945D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IBSC_MODULE = Afternoon4Watch_Extension;
-				INFOPLIST_FILE = Afternoon4Watch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		DFDCC85B1BE84644000B945D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IBSC_MODULE = Afternoon4Watch_Extension;
-				INFOPLIST_FILE = Afternoon4Watch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		DFDCC85C1BE84644000B945D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Afternoon/Lib",
-				);
-				INFOPLIST_FILE = "Afternoon4Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		DFDCC85D1BE84644000B945D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Afternoon/Lib",
-				);
-				INFOPLIST_FILE = "Afternoon4Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1446,22 +1216,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		DFDCC85E1BE84644000B945D /* Build configuration list for PBXNativeTarget "Afternoon4Watch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DFDCC85C1BE84644000B945D /* Debug */,
-				DFDCC85D1BE84644000B945D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		DFDCC8601BE84644000B945D /* Build configuration list for PBXNativeTarget "Afternoon4Watch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DFDCC85A1BE84644000B945D /* Debug */,
-				DFDCC85B1BE84644000B945D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
