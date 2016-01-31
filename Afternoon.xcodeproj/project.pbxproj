@@ -10,6 +10,9 @@
 		DF0459791BF32E17000AFF50 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459761BF32E17000AFF50 /* MBProgressHUD.m */; };
 		DF04597A1BF32E17000AFF50 /* VMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459781BF32E17000AFF50 /* VMProgressHUD.m */; };
 		DF04597D1BF33874000AFF50 /* JRProgressHubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF04597C1BF33874000AFF50 /* JRProgressHubManager.m */; };
+		DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */; };
+		DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */; };
+		DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF21BF5D602007D9AC3 /* AftMedia.m */; };
 		DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD4025F1BDBC653009EC2BB /* Main.storyboard */; };
 		DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFD402621BDBC653009EC2BB /* Assets.xcassets */; };
 		DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD402641BDBC653009EC2BB /* LaunchScreen.storyboard */; };
@@ -152,6 +155,11 @@
 		DF0459781BF32E17000AFF50 /* VMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMProgressHUD.m; sourceTree = "<group>"; };
 		DF04597B1BF33874000AFF50 /* JRProgressHubManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRProgressHubManager.h; sourceTree = "<group>"; };
 		DF04597C1BF33874000AFF50 /* JRProgressHubManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRProgressHubManager.m; sourceTree = "<group>"; };
+		DF38BAE61BF5D3F0007D9AC3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DF38BAEF1BF5D602007D9AC3 /* AftMedia+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AftMedia+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AftMedia+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DF38BAF11BF5D602007D9AC3 /* AftMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftMedia.h; sourceTree = "<group>"; };
+		DF38BAF21BF5D602007D9AC3 /* AftMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftMedia.m; sourceTree = "<group>"; };
 		DFD402531BDBC653009EC2BB /* Afternoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Afternoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD402601BDBC653009EC2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFD402621BDBC653009EC2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -431,6 +439,17 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		DF38BAEE1BF5D602007D9AC3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DF38BAEF1BF5D602007D9AC3 /* AftMedia+CoreDataProperties.h */,
+				DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */,
+				DF38BAF11BF5D602007D9AC3 /* AftMedia.h */,
+				DF38BAF21BF5D602007D9AC3 /* AftMedia.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DFD4024A1BDBC653009EC2BB = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +487,7 @@
 			children = (
 				DFD4026D1BDBC733009EC2BB /* Info.plist */,
 				DFD4026E1BDBC733009EC2BB /* main.m */,
+				DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -484,6 +504,7 @@
 		DFD402751BDBC779009EC2BB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DF38BAEE1BF5D602007D9AC3 /* Models */,
 				DFDCC8661BE8A82E000B945D /* Views */,
 				DFD402761BDBC779009EC2BB /* Controllers */,
 			);
@@ -1005,10 +1026,12 @@
 				DF04597D1BF33874000AFF50 /* JRProgressHubManager.m in Sources */,
 				DFD403C21BDD1710009EC2BB /* MASViewAttribute.m in Sources */,
 				DFD4039A1BDD1710009EC2BB /* POPCGUtils.mm in Sources */,
+				DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */,
 				DFD403B11BDD1710009EC2BB /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				DFD403C01BDD1710009EC2BB /* MASConstraintMaker.m in Sources */,
 				DFD402741BDBC73A009EC2BB /* AppDelegate.m in Sources */,
 				DFD403931BDD1710009EC2BB /* POPAnimation.mm in Sources */,
+				DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */,
 				DFD4038D1BDD1710009EC2BB /* UIProgressView+AFNetworking.m in Sources */,
 				DFD403BC1BDD1710009EC2BB /* MagicalRecord+ShorthandSupport.m in Sources */,
 				DFD403D11BDD1710009EC2BB /* SDWebImagePrefetcher.m in Sources */,
@@ -1019,6 +1042,7 @@
 				DFD403B81BDD1710009EC2BB /* MagicalRecord+ErrorHandling.m in Sources */,
 				DFD403811BDD1710009EC2BB /* AFSecurityPolicy.m in Sources */,
 				DFD403C41BDD1710009EC2BB /* NSArray+MASAdditions.m in Sources */,
+				DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */,
 				DFD403C61BDD1710009EC2BB /* View+MASAdditions.m in Sources */,
 				DFD403CF1BDD1710009EC2BB /* SDWebImageDownloaderOperation.m in Sources */,
 				DFD4038B1BDD1710009EC2BB /* UIButton+AFNetworking.m in Sources */,
@@ -1218,6 +1242,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DF38BAE61BF5D3F0007D9AC3 /* Model.xcdatamodel */,
+			);
+			currentVersion = DF38BAE61BF5D3F0007D9AC3 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Supported/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DFD4024B1BDBC653009EC2BB /* Project object */;
 }

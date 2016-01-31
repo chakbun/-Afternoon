@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AftMedia : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+- (instancetype)mediaWithDate:(NSDate *)date;
 
 @end
 

@@ -7,9 +7,15 @@
 //
 
 #import "AftMedia.h"
+#import "CoreData+MagicalRecord.h"
 
 @implementation AftMedia
 
-// Insert code here to add functionality to your managed object subclass
+- (instancetype)mediaWithDate:(NSDate *)date {
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    NSString *mediaName = [dateFormatter stringFromDate:date];
+    return [AftMedia MR_findFirstByAttribute:@"fileName" withValue:mediaName];
+}
 
 @end

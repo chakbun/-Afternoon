@@ -27,40 +27,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    __weak __typeof(self) weakSelf = self;
+    NSDate *today = [NSDate date];
+    NSDateFormatter *yyyyMMddFormatter = [[NSDateFormatter alloc] init];
+    yyyyMMddFormatter.dateFormat = @"yyyy-MM-dd";
     
-    BmobQuery *bquery = [BmobQuery queryWithClassName:@"table_music"];
-    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+    NSString *todayMusciFileName = [NSString stringWithFormat:@"musicFile_%@",[yyyyMMddFormatter stringFromDate:today]];
+    
+    NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , todayMusciFileName];
+    
+    BOOL fileExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    
+    if (fileExist) {
+        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+        NSError *musicError = nil;
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&musicError];
+        if (!musicError) {
+            NSLog(@"============ 准备播放 ============");
+            [self.audioPlayer prepareToPlay];
+            [self.audioPlayer play];
+        }
+    }else {
         
-        BmobObject *obj = array[array.count - 1];
-        BmobFile *musicFile = [obj objectForKey:@"originMusic"];
-        BmobFile *coverFile = [obj objectForKey:@"coverUrl"];
+        __weak __typeof(self) weakSelf = self;
         
-        [weakSelf.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverFile.url] placeholderImage:nil completed:NULL];
-        weakSelf.singerLabel.text = [obj objectForKey:@"singer"];
-        weakSelf.musicNameLabel.text = [obj objectForKey:@"title"];
-        
-        NSDate *today = [NSDate date];
-        NSDateFormatter *yyyyMMddFormatter = [[NSDateFormatter alloc] init];
-        yyyyMMddFormatter.dateFormat = @"yyyy-MM-dd";
-        
-        NSString *todayMusciFileName = [NSString stringWithFormat:@"musicFile_%@",[yyyyMMddFormatter stringFromDate:today]];
-        
-        NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , todayMusciFileName];
-        
-        BOOL fileExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
-        if (fileExist) {
-            //播放本地音乐
-            NSURL *fileURL = [NSURL fileURLWithPath:filePath];
-            NSError *musicError = nil;
-            weakSelf.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&musicError];
-            if (!musicError) {
-                NSLog(@"============ 准备播放 ============");
-                [weakSelf.audioPlayer prepareToPlay];
-                [weakSelf.audioPlayer play];
-            }
-        }else {
+        BmobQuery *bquery = [BmobQuery queryWithClassName:@"table_music"];
+        [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            
+            BmobObject *obj = array[array.count - 1];
+            BmobFile *musicFile = [obj objectForKey:@"originMusic"];
+            BmobFile *coverFile = [obj objectForKey:@"coverUrl"];
+            
+            NSString *singerName = [obj objectForKey:@"singer"];
+            NSString *title = [obj objectForKey:@"title"];
+            NSString *singerName = [obj objectForKey:@"singer"];
+            NSString *singerName = [obj objectForKey:@"singer"];
+            NSString *singerName = [obj objectForKey:@"singer"];
+
+
+            [weakSelf.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverFile.url] placeholderImage:nil completed:NULL];
+            weakSelf.singerLabel.text = singerName;
+            weakSelf.musicNameLabel.text = [obj objectForKey:@"title"];
             
             [[JRProgressHubManager shareManager] showProgressWithText:@"正在加载歌曲，请稍后..."];
             
@@ -90,9 +97,8 @@
                     [weakSelf.audioPlayer play];
                 }
             });
-        }
-
-    }];
+        }];
+    }
 
 }
 
