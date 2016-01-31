@@ -13,6 +13,9 @@
 		DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */; };
 		DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */; };
 		DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF21BF5D602007D9AC3 /* AftMedia.m */; };
+		DFC554EE1C5E585A00AF705F /* AftWCArticleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554ED1C5E585A00AF705F /* AftWCArticleListController.m */; };
+		DFC554F11C5E58DC00AF705F /* AftWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554F01C5E58DC00AF705F /* AftWebViewController.m */; };
+		DFC554F41C5E5CD000AF705F /* AftWebModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554F31C5E5CD000AF705F /* AftWebModel.m */; };
 		DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD4025F1BDBC653009EC2BB /* Main.storyboard */; };
 		DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFD402621BDBC653009EC2BB /* Assets.xcassets */; };
 		DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD402641BDBC653009EC2BB /* LaunchScreen.storyboard */; };
@@ -160,6 +163,12 @@
 		DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AftMedia+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DF38BAF11BF5D602007D9AC3 /* AftMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftMedia.h; sourceTree = "<group>"; };
 		DF38BAF21BF5D602007D9AC3 /* AftMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftMedia.m; sourceTree = "<group>"; };
+		DFC554EC1C5E585A00AF705F /* AftWCArticleListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWCArticleListController.h; sourceTree = "<group>"; };
+		DFC554ED1C5E585A00AF705F /* AftWCArticleListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWCArticleListController.m; sourceTree = "<group>"; };
+		DFC554EF1C5E58DC00AF705F /* AftWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWebViewController.h; sourceTree = "<group>"; };
+		DFC554F01C5E58DC00AF705F /* AftWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWebViewController.m; sourceTree = "<group>"; };
+		DFC554F21C5E5CD000AF705F /* AftWebModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWebModel.h; sourceTree = "<group>"; };
+		DFC554F31C5E5CD000AF705F /* AftWebModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWebModel.m; sourceTree = "<group>"; };
 		DFD402531BDBC653009EC2BB /* Afternoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Afternoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD402601BDBC653009EC2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFD402621BDBC653009EC2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -450,6 +459,43 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		DFC554E81C5E571100AF705F /* WebPart */ = {
+			isa = PBXGroup;
+			children = (
+				DFC554E91C5E571100AF705F /* Controllers */,
+				DFC554EA1C5E571100AF705F /* Models */,
+				DFC554EB1C5E571100AF705F /* Views */,
+			);
+			path = WebPart;
+			sourceTree = "<group>";
+		};
+		DFC554E91C5E571100AF705F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DFC554EC1C5E585A00AF705F /* AftWCArticleListController.h */,
+				DFC554ED1C5E585A00AF705F /* AftWCArticleListController.m */,
+				DFC554EF1C5E58DC00AF705F /* AftWebViewController.h */,
+				DFC554F01C5E58DC00AF705F /* AftWebViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DFC554EA1C5E571100AF705F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFC554F21C5E5CD000AF705F /* AftWebModel.h */,
+				DFC554F31C5E5CD000AF705F /* AftWebModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DFC554EB1C5E571100AF705F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DFD4024A1BDBC653009EC2BB = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +550,7 @@
 		DFD402751BDBC779009EC2BB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DFC554E81C5E571100AF705F /* WebPart */,
 				DF38BAEE1BF5D602007D9AC3 /* Models */,
 				DFDCC8661BE8A82E000B945D /* Views */,
 				DFD402761BDBC779009EC2BB /* Controllers */,
@@ -988,6 +1035,7 @@
 				DFD4039D1BDD1710009EC2BB /* POPGeometry.mm in Sources */,
 				DFD403D61BDD1710009EC2BB /* UIImageView+WebCache.m in Sources */,
 				DFD403821BDD1710009EC2BB /* AFURLConnectionOperation.m in Sources */,
+				DFC554F11C5E58DC00AF705F /* AftWebViewController.m in Sources */,
 				DFD403D21BDD1710009EC2BB /* UIButton+WebCache.m in Sources */,
 				DFD403921BDD1710009EC2BB /* POPAnimatableProperty.mm in Sources */,
 				DFD403CD1BDD1710009EC2BB /* SDWebImageDecoder.m in Sources */,
@@ -1002,6 +1050,7 @@
 				DFD403941BDD1710009EC2BB /* POPAnimationEvent.mm in Sources */,
 				DFD4029B1BDBE314009EC2BB /* AftArticleController.m in Sources */,
 				DFD403881BDD1710009EC2BB /* AFNetworkActivityIndicatorManager.m in Sources */,
+				DFC554F41C5E5CD000AF705F /* AftWebModel.m in Sources */,
 				DFD4038C1BDD1710009EC2BB /* UIImageView+AFNetworking.m in Sources */,
 				DFD403B41BDD1710009EC2BB /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				DFD403BA1BDD1710009EC2BB /* MagicalRecord+Options.m in Sources */,
@@ -1011,6 +1060,7 @@
 				DFD4038F1BDD1710009EC2BB /* UIWebView+AFNetworking.m in Sources */,
 				DFD4039E1BDD1710009EC2BB /* POPLayerExtras.mm in Sources */,
 				DFD4039C1BDD1710009EC2BB /* POPDecayAnimation.mm in Sources */,
+				DFC554EE1C5E585A00AF705F /* AftWCArticleListController.m in Sources */,
 				DFD403CB1BDD1710009EC2BB /* SDImageCache.m in Sources */,
 				DFD402981BDBE2BF009EC2BB /* AftBaseController.m in Sources */,
 				DFD403971BDD1710009EC2BB /* POPAnimationTracer.mm in Sources */,

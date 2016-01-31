@@ -60,9 +60,6 @@
             
             NSString *singerName = [obj objectForKey:@"singer"];
             NSString *title = [obj objectForKey:@"title"];
-            NSString *singerName = [obj objectForKey:@"singer"];
-            NSString *singerName = [obj objectForKey:@"singer"];
-            NSString *singerName = [obj objectForKey:@"singer"];
 
 
             [weakSelf.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverFile.url] placeholderImage:nil completed:NULL];
