@@ -319,6 +319,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aAM-4Z-Pzv" id="ZKf-Uf-cvE"/>
+                                    <outlet property="delegate" destination="aAM-4Z-Pzv" id="Gwd-GB-o0T"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,6 +334,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AyH-CB-jhg"/>
+                    <connections>
+                        <outlet property="articleTableview" destination="07J-Se-BLc" id="KD4-nw-F3i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEU-Fd-tvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -354,7 +361,7 @@
         <!--Aft Web View Controller-->
         <scene sceneID="iA4-eD-Msf">
             <objects>
-                <viewController id="ohc-Bf-Hzl" customClass="AftWebViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AftWebViewController" id="ohc-Bf-Hzl" customClass="AftWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ngH-a6-F3s"/>
                         <viewControllerLayoutGuide type="bottom" id="1qA-JW-h5N"/>
@@ -376,6 +383,9 @@
                             <constraint firstItem="oeE-jQ-3EX" firstAttribute="leading" secondItem="DtG-gM-gGO" secondAttribute="leadingMargin" constant="-20" id="uFZ-TC-lSe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentWebView" destination="oeE-jQ-3EX" id="K89-UA-6El"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPz-LN-SWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

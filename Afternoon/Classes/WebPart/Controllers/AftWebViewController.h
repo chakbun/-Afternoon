@@ -10,4 +10,6 @@
 
 @interface AftWebViewController : UIViewController
 
+@property (nonatomic, strong) NSString *webURL;
+
 @end

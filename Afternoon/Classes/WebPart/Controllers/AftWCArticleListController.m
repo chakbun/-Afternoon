@@ -9,16 +9,27 @@
 #import "AftWCArticleListController.h"
 #import <BmobSDK/Bmob.h>
 #import <BmobSDK/BmobProFile.h>
+#import "AftWebViewController.h"
+#import "AftWebModel.h"
 
+@interface AftWCArticleListController ()<UITableViewDataSource,UITableViewDelegate>
 
-@interface AftWCArticleListController ()
+@property (weak, nonatomic) IBOutlet UITableView *articleTableview;
+
+@property (nonatomic, strong) NSMutableArray *articleList;
 
 @end
 
 @implementation AftWCArticleListController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    self.articleList = [NSMutableArray array];
+    
+    __weak __typeof(self) weakSelf = self;
+
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"table_web"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         for(BmobObject *obj in array) {
@@ -27,12 +38,49 @@
             NSLog(@"============ 内容：%@ ============", [obj objectForKey:@"previewContent"]);
             NSLog(@"============ 作者：%@ ============", [obj objectForKey:@"author"]);
             NSLog(@"============ URL：%@ ============", [obj objectForKey:@"url"]);
+            
+            AftWebModel *webModel = [AftWebModel new];
+            webModel.url = [obj objectForKey:@"url"];
+            webModel.title = [obj objectForKey:@"title"];
+            webModel.author = [obj objectForKey:@"author"];
+            webModel.previewContent = [obj objectForKey:@"previewContent"];
+            webModel.createDate = [obj objectForKey:@"createDate"];
+            
+            [weakSelf.articleList addObject:webModel];
+            [weakSelf.articleTableview reloadData];
         }
     }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - TabelView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AftWebViewController *webViewController = [storyboard instantiateViewControllerWithIdentifier:@"AftWebViewController"];
+    
+    AftWebModel *webModel = self.articleList[indexPath.row];
+    webViewController.webURL = webModel.url;
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
+
+#pragma mark - TabelView DataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.articleList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuser_cell_article"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuser_cell_article"];
+    }
+    AftWebModel *webModel = self.articleList[indexPath.row];
+    cell.textLabel.text = webModel.title;
+    return cell;
 }
 
 @end
