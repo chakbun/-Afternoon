@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		518A09EE1C5F5D9A000B8BFE /* AftWCArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */; };
 		DF0459791BF32E17000AFF50 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459761BF32E17000AFF50 /* MBProgressHUD.m */; };
 		DF04597A1BF32E17000AFF50 /* VMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459781BF32E17000AFF50 /* VMProgressHUD.m */; };
 		DF04597D1BF33874000AFF50 /* JRProgressHubManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF04597C1BF33874000AFF50 /* JRProgressHubManager.m */; };
@@ -152,6 +153,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		518A09EC1C5F5D9A000B8BFE /* AftWCArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWCArticleCell.h; sourceTree = "<group>"; };
+		518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWCArticleCell.m; sourceTree = "<group>"; };
 		DF0459751BF32E17000AFF50 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		DF0459761BF32E17000AFF50 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		DF0459771BF32E17000AFF50 /* VMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMProgressHUD.h; sourceTree = "<group>"; };
@@ -435,6 +438,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		518A09EB1C5F5D88000B8BFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				518A09EC1C5F5D9A000B8BFE /* AftWCArticleCell.h */,
+				518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DF0459741BF32E17000AFF50 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,9 +474,9 @@
 		DFC554E81C5E571100AF705F /* WebPart */ = {
 			isa = PBXGroup;
 			children = (
+				518A09EB1C5F5D88000B8BFE /* Views */,
 				DFC554E91C5E571100AF705F /* Controllers */,
 				DFC554EA1C5E571100AF705F /* Models */,
-				DFC554EB1C5E571100AF705F /* Views */,
 			);
 			path = WebPart;
 			sourceTree = "<group>";
@@ -487,13 +499,6 @@
 				DFC554F31C5E5CD000AF705F /* AftWebModel.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		DFC554EB1C5E571100AF705F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		DFD4024A1BDBC653009EC2BB = {
@@ -1054,6 +1059,7 @@
 				DFD4038C1BDD1710009EC2BB /* UIImageView+AFNetworking.m in Sources */,
 				DFD403B41BDD1710009EC2BB /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				DFD403BA1BDD1710009EC2BB /* MagicalRecord+Options.m in Sources */,
+				518A09EE1C5F5D9A000B8BFE /* AftWCArticleCell.m in Sources */,
 				DFD4037E1BDD1710009EC2BB /* AFHTTPRequestOperationManager.m in Sources */,
 				DFD403891BDD1710009EC2BB /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				DFD403D31BDD1710009EC2BB /* UIImage+GIF.m in Sources */,

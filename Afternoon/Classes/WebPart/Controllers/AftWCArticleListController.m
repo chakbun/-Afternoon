@@ -11,6 +11,7 @@
 #import <BmobSDK/BmobProFile.h>
 #import "AftWebViewController.h"
 #import "AftWebModel.h"
+#import "AftWCArticleCell.h"
 
 @interface AftWCArticleListController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -50,6 +51,7 @@
             [weakSelf.articleTableview reloadData];
         }
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +69,10 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 140;
+}
+
 #pragma mark - TabelView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -74,12 +80,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuser_cell_article"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuser_cell_article"];
-    }
+    AftWCArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID_AftWCArticleCell forIndexPath:indexPath];
     AftWebModel *webModel = self.articleList[indexPath.row];
-    cell.textLabel.text = webModel.title;
+    cell.articleTitleLabel.text = webModel.title;
+    cell.articleDetailLabel.text = webModel.previewContent;
     return cell;
 }
 
