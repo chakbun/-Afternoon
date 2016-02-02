@@ -12,6 +12,7 @@
 #import "AftWebViewController.h"
 #import "AftWebModel.h"
 #import "AftWCArticleCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface AftWCArticleListController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -42,12 +43,15 @@
             NSLog(@"============ 作者：%@ ============", [obj objectForKey:@"author"]);
             NSLog(@"============ URL：%@ ============", [obj objectForKey:@"url"]);
             
+            BmobFile *fileInfo = [obj objectForKey:@"previewImage"];
+            
             AftWebModel *webModel = [AftWebModel new];
             webModel.url = [obj objectForKey:@"url"];
             webModel.title = [obj objectForKey:@"title"];
             webModel.author = [obj objectForKey:@"author"];
             webModel.previewContent = [obj objectForKey:@"previewContent"];
             webModel.createDate = [obj objectForKey:@"createDate"];
+            webModel.previewImage = fileInfo.url;
             
             [weakSelf.articleList addObject:webModel];
             [weakSelf.articleTableview reloadData];
@@ -96,8 +100,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AftWCArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID_AftWCArticleCell forIndexPath:indexPath];
     AftWebModel *webModel = self.articleList[indexPath.row];
+    
     cell.articleTitleLabel.text = webModel.title;
     cell.articleDetailLabel.text = [self.yyyyMMddFormatter stringFromDate:webModel.createDate];
+    [cell.artImageView sd_setImageWithURL:[NSURL URLWithString:webModel.previewImage] placeholderImage:[UIImage imageNamed:@"google"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
