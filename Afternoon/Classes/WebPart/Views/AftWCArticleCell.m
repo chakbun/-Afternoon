@@ -16,7 +16,7 @@
 @implementation AftWCArticleCell
 
 - (void)awakeFromNib {
-    
+    self.artImageView.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

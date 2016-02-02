@@ -13,7 +13,9 @@
 @interface AftWCArticleCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *articleTitleLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *articleDetailLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *artImageView;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		515A7B521C604A7700DD2CFE /* google@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 515A7B511C604A7700DD2CFE /* google@2x.png */; };
 		518A09EE1C5F5D9A000B8BFE /* AftWCArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */; };
 		DF0459791BF32E17000AFF50 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459761BF32E17000AFF50 /* MBProgressHUD.m */; };
 		DF04597A1BF32E17000AFF50 /* VMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0459781BF32E17000AFF50 /* VMProgressHUD.m */; };
@@ -153,6 +154,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		515A7B511C604A7700DD2CFE /* google@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google@2x.png"; sourceTree = "<group>"; };
 		518A09EC1C5F5D9A000B8BFE /* AftWCArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWCArticleCell.h; sourceTree = "<group>"; };
 		518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWCArticleCell.m; sourceTree = "<group>"; };
 		DF0459751BF32E17000AFF50 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 		DFDCC86B1BE8AF3D000B945D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				515A7B511C604A7700DD2CFE /* google@2x.png */,
 				DFDCC8701BE8B009000B945D /* avatar.png */,
 				DFDCC86C1BE8AF3D000B945D /* pause.png */,
 				DFDCC86D1BE8AF3D000B945D /* start.png */,
@@ -1017,6 +1020,7 @@
 				DFD402661BDBC653009EC2BB /* LaunchScreen.storyboard in Resources */,
 				DFD403901BDD1710009EC2BB /* pop-ios-Info.plist in Resources */,
 				DFDCC86E1BE8AF3D000B945D /* pause.png in Resources */,
+				515A7B521C604A7700DD2CFE /* google@2x.png in Resources */,
 				DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */,
 				DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */,
 				DFD403861BDD1710009EC2BB /* LICENSE in Resources */,

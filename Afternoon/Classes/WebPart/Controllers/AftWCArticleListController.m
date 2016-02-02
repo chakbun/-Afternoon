@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSMutableArray *articleList;
 
+@property (nonatomic, strong) NSDateFormatter *yyyyMMddFormatter;
+
 @end
 
 @implementation AftWCArticleListController
@@ -52,25 +54,37 @@
         }
     }];
     
+    //init formatter
+    self.yyyyMMddFormatter = [NSDateFormatter new];
+    self.yyyyMMddFormatter.dateFormat = @"yyyy-MM-dd";
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"article2WebSegue"]) {
+        
+        AftWebViewController *webViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.articleTableview indexPathForCell:sender];
+        AftWebModel *webModel = self.articleList[indexPath.row];
+        webViewController.webURL = webModel.url;
+    }
+}
+
 #pragma mark - TabelView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AftWebViewController *webViewController = [storyboard instantiateViewControllerWithIdentifier:@"AftWebViewController"];
     
-    AftWebModel *webModel = self.articleList[indexPath.row];
-    webViewController.webURL = webModel.url;
-    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 140;
+    return 117;
 }
 
 #pragma mark - TabelView DataSource
@@ -83,7 +97,8 @@
     AftWCArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID_AftWCArticleCell forIndexPath:indexPath];
     AftWebModel *webModel = self.articleList[indexPath.row];
     cell.articleTitleLabel.text = webModel.title;
-    cell.articleDetailLabel.text = webModel.previewContent;
+    cell.articleDetailLabel.text = [self.yyyyMMddFormatter stringFromDate:webModel.createDate];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
