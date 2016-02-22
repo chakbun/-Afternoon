@@ -88,7 +88,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 117;
+    return 150;
 }
 
 #pragma mark - TabelView DataSource
@@ -99,6 +99,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AftWCArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID_AftWCArticleCell forIndexPath:indexPath];
+    if (indexPath.row%2 == 0) {
+        cell.backgroundColor = [UIColor redColor];
+    }else {
+        cell.backgroundColor = [UIColor greenColor];
+    }
     AftWebModel *webModel = self.articleList[indexPath.row];
     
     cell.articleTitleLabel.text = webModel.title;
