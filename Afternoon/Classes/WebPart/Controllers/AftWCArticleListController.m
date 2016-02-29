@@ -36,26 +36,30 @@
 
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"table_web"];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        for(BmobObject *obj in array) {
-            NSLog(@"============ 日期: %@============",obj.createdAt);
-            NSLog(@"============ 标题：%@ ============", [obj objectForKey:@"title"]);
-            NSLog(@"============ 内容：%@ ============", [obj objectForKey:@"previewContent"]);
-            NSLog(@"============ 作者：%@ ============", [obj objectForKey:@"author"]);
-            NSLog(@"============ URL：%@ ============", [obj objectForKey:@"url"]);
+        
+        [array enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
-            BmobFile *fileInfo = [obj objectForKey:@"previewImage"];
+            BmobObject *bmobObj = obj;
+            
+            NSLog(@"============ 日期: %@============",bmobObj.createdAt);
+            NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
+            NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
+            NSLog(@"============ 作者：%@ ============", [bmobObj objectForKey:@"author"]);
+            NSLog(@"============ URL：%@ ============", [bmobObj objectForKey:@"url"]);
+            
+            BmobFile *fileInfo = [bmobObj objectForKey:@"previewImage"];
             
             AftWebModel *webModel = [AftWebModel new];
-            webModel.url = [obj objectForKey:@"url"];
-            webModel.title = [obj objectForKey:@"title"];
-            webModel.author = [obj objectForKey:@"author"];
-            webModel.previewContent = [obj objectForKey:@"previewContent"];
-            webModel.createDate = [obj objectForKey:@"createDate"];
+            webModel.url = [bmobObj objectForKey:@"url"];
+            webModel.title = [bmobObj objectForKey:@"title"];
+            webModel.author = [bmobObj objectForKey:@"author"];
+            webModel.previewContent = [bmobObj objectForKey:@"previewContent"];
+            webModel.createDate = [bmobObj objectForKey:@"createDate"];
             webModel.previewImage = fileInfo.url;
             
             [weakSelf.articleList addObject:webModel];
             [weakSelf.articleTableview reloadData];
-        }
+        }];
     }];
     
     //init formatter
@@ -99,11 +103,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AftWCArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID_AftWCArticleCell forIndexPath:indexPath];
-    if (indexPath.row%2 == 0) {
-        cell.backgroundColor = [UIColor redColor];
-    }else {
-        cell.backgroundColor = [UIColor greenColor];
-    }
     AftWebModel *webModel = self.articleList[indexPath.row];
     
     cell.articleTitleLabel.text = webModel.title;

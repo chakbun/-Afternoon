@@ -7,7 +7,6 @@
 //
 
 #import "AftMainController.h"
-#import "AftArticleController.h"
 #import "AftImageAblumController.h"
 #import "AftMusicController.h"
 
