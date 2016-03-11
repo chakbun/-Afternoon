@@ -45,12 +45,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="XSX-n1-p7c" secondAttribute="trailing" id="mp3-2j-EHK"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1e6-qM-hQD" secondAttribute="leading" id="oHo-UE-7D1"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1e6-qM-hQD"/>
+                                <exclude reference="XSX-n1-p7c"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XSY-P8-l7s"/>
-                    <connections>
-                        <outlet property="photoImageView" destination="1e6-qM-hQD" id="sND-y4-61E"/>
-                        <outlet property="photoTitleLabel" destination="XSX-n1-p7c" id="pAp-7Q-0Dq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJD-z7-Eyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

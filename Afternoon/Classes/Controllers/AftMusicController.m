@@ -12,8 +12,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AFHTTPRequestOperationManager.h"
 #import "UIImageView+WebCache.h"
-#import "VMProgressHUD.h"
-#import "JRProgressHubManager.h"
 
 @interface AftMusicController ()
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;

@@ -9,6 +9,7 @@
 #import "AftMainController.h"
 #import "AftImageAblumController.h"
 #import "AftMusicController.h"
+#import "UIColor+JRColor.h"
 
 @interface AftMainController ()
 
@@ -20,10 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = [UIColor themeGreyGreen];
 
+    self.navigationController.navigationBar.translucent = YES;
     NSArray *barItemTitles = @[@"照片",@"文章",@"音乐",@"吃点"];
     
-    [self.menuTabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.menuTabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *obj, NSUInteger idx, BOOL *stop) {
         UIBarItem *barItem = obj;
         barItem.title = barItemTitles[idx];
     }];

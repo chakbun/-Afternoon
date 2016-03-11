@@ -12,8 +12,6 @@
 #import "UIImageView+WebCache.h"
 
 @interface AftImageAblumController ()
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
-@property (weak, nonatomic) IBOutlet UILabel *photoTitleLabel;
 
 @end
 
@@ -37,8 +35,6 @@
         BmobFile *imageFile = [obj objectForKey:@"originImage"];
         NSLog(@"============ imageUrl :%@ ============",imageFile.url);
 
-        [weakSelf.photoImageView sd_setImageWithURL:[NSURL URLWithString:imageFile.url] placeholderImage:nil];
-        weakSelf.photoTitleLabel.text = [obj objectForKey:@"author"];
     }];
 }
 

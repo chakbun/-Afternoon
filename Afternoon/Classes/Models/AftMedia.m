@@ -7,7 +7,7 @@
 //
 
 #import "AftMedia.h"
-#import "CoreData+MagicalRecord.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @implementation AftMedia
 
