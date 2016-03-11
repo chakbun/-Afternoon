@@ -7,7 +7,7 @@
 //
 
 #import "AftMainController.h"
-#import "AftImageAblumController.h"
+#import "AftAlbumController.h"
 #import "AftMusicController.h"
 #import "UIColor+JRColor.h"
 

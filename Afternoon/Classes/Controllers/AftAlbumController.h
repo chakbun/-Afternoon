@@ -8,6 +8,6 @@
 
 #import "AftBaseController.h"
 
-@interface AftImageAblumController : AftBaseController
+@interface AftAlbumController : AftBaseController
 
 @end

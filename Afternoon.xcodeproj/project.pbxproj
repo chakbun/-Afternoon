@@ -12,6 +12,8 @@
 		51D33DB61C8450B600DFE83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D33DB41C8450B600DFE83E /* LaunchScreen.storyboard */; };
 		51D33DB81C84515100DFE83E /* launchImage1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D33DB71C84515100DFE83E /* launchImage1136.png */; };
 		AC24A21745C6E749CAEE5BD1 /* libPods-Afternoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA25902DC1C6F6A56994206A /* libPods-Afternoon.a */; };
+		DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF11AEA31C9296A40065520C /* AftAlbumCell.m */; };
+		DF11AEA71C929C6B0065520C /* AftAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DF11AEA61C929C6B0065520C /* AftAlbum.m */; };
 		DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */; };
 		DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */; };
 		DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF21BF5D602007D9AC3 /* AftMedia.m */; };
@@ -38,7 +40,7 @@
 		DFD402921BDBD3AB009EC2BB /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD402911BDBD3AB009EC2BB /* libz.1.2.5.tbd */; };
 		DFD402941BDBD3BC009EC2BB /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD402931BDBD3BC009EC2BB /* libicucore.tbd */; };
 		DFD402981BDBE2BF009EC2BB /* AftBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD402971BDBE2BF009EC2BB /* AftBaseController.m */; };
-		DFD4029E1BDBE32E009EC2BB /* AftImageAblumController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD4029D1BDBE32E009EC2BB /* AftImageAblumController.m */; };
+		DFD4029E1BDBE32E009EC2BB /* AftAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD4029D1BDBE32E009EC2BB /* AftAlbumController.m */; };
 		DFD402A11BDBE33F009EC2BB /* AftMusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD402A01BDBE33F009EC2BB /* AftMusicController.m */; };
 		DFD402A41BDD0E13009EC2BB /* AftMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD402A31BDD0E13009EC2BB /* AftMainController.m */; };
 		DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */; };
@@ -69,6 +71,11 @@
 		51D33DB71C84515100DFE83E /* launchImage1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage1136.png; sourceTree = "<group>"; };
 		889AC6541F5BE4AFC73EA1B8 /* Pods-Afternoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Afternoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Afternoon/Pods-Afternoon.release.xcconfig"; sourceTree = "<group>"; };
 		A13D03F74AE8FE14D8B068EC /* Pods-Afternoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Afternoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Afternoon/Pods-Afternoon.debug.xcconfig"; sourceTree = "<group>"; };
+		DF11AEA21C9296A40065520C /* AftAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbumCell.h; sourceTree = "<group>"; };
+		DF11AEA31C9296A40065520C /* AftAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbumCell.m; sourceTree = "<group>"; };
+		DF11AEA51C929C6B0065520C /* AftAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbum.h; sourceTree = "<group>"; };
+		DF11AEA61C929C6B0065520C /* AftAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbum.m; sourceTree = "<group>"; };
+		DF11AEA81C92B8E00065520C /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		DF38BAE61BF5D3F0007D9AC3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DF38BAEF1BF5D602007D9AC3 /* AftMedia+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AftMedia+CoreDataProperties.h"; sourceTree = "<group>"; };
 		DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AftMedia+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -104,8 +111,8 @@
 		DFD402931BDBD3BC009EC2BB /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		DFD402961BDBE2BF009EC2BB /* AftBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftBaseController.h; sourceTree = "<group>"; };
 		DFD402971BDBE2BF009EC2BB /* AftBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftBaseController.m; sourceTree = "<group>"; };
-		DFD4029C1BDBE32E009EC2BB /* AftImageAblumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftImageAblumController.h; sourceTree = "<group>"; };
-		DFD4029D1BDBE32E009EC2BB /* AftImageAblumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftImageAblumController.m; sourceTree = "<group>"; };
+		DFD4029C1BDBE32E009EC2BB /* AftAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbumController.h; sourceTree = "<group>"; };
+		DFD4029D1BDBE32E009EC2BB /* AftAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbumController.m; sourceTree = "<group>"; };
 		DFD4029F1BDBE33F009EC2BB /* AftMusicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftMusicController.h; sourceTree = "<group>"; };
 		DFD402A01BDBE33F009EC2BB /* AftMusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftMusicController.m; sourceTree = "<group>"; };
 		DFD402A21BDD0E13009EC2BB /* AftMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftMainController.h; sourceTree = "<group>"; };
@@ -170,6 +177,8 @@
 				DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */,
 				DF38BAF11BF5D602007D9AC3 /* AftMedia.h */,
 				DF38BAF21BF5D602007D9AC3 /* AftMedia.m */,
+				DF11AEA51C929C6B0065520C /* AftAlbum.h */,
+				DF11AEA61C929C6B0065520C /* AftAlbum.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,6 +262,7 @@
 			children = (
 				DFD402721BDBC73A009EC2BB /* AppDelegate.h */,
 				DFD402731BDBC73A009EC2BB /* AppDelegate.m */,
+				DF11AEA81C92B8E00065520C /* AppConstants.h */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -276,8 +286,8 @@
 				DFD402781BDBC779009EC2BB /* ViewController.m */,
 				DFD402961BDBE2BF009EC2BB /* AftBaseController.h */,
 				DFD402971BDBE2BF009EC2BB /* AftBaseController.m */,
-				DFD4029C1BDBE32E009EC2BB /* AftImageAblumController.h */,
-				DFD4029D1BDBE32E009EC2BB /* AftImageAblumController.m */,
+				DFD4029C1BDBE32E009EC2BB /* AftAlbumController.h */,
+				DFD4029D1BDBE32E009EC2BB /* AftAlbumController.m */,
 				DFD4029F1BDBE33F009EC2BB /* AftMusicController.h */,
 				DFD402A01BDBE33F009EC2BB /* AftMusicController.m */,
 				DFD402A21BDD0E13009EC2BB /* AftMainController.h */,
@@ -318,6 +328,8 @@
 			children = (
 				DFDCC8671BE8AAC0000B945D /* AftAblumRotateView.h */,
 				DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */,
+				DF11AEA21C9296A40065520C /* AftAlbumCell.h */,
+				DF11AEA31C9296A40065520C /* AftAlbumCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -495,14 +507,16 @@
 				DFC554EE1C5E585A00AF705F /* AftWCArticleListController.m in Sources */,
 				DFD402981BDBE2BF009EC2BB /* AftBaseController.m in Sources */,
 				DFD402A41BDD0E13009EC2BB /* AftMainController.m in Sources */,
+				DF11AEA71C929C6B0065520C /* AftAlbum.m in Sources */,
 				DFD402791BDBC779009EC2BB /* ViewController.m in Sources */,
 				DFD402701BDBC733009EC2BB /* main.m in Sources */,
 				DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */,
 				DFD402741BDBC73A009EC2BB /* AppDelegate.m in Sources */,
 				DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */,
 				DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */,
-				DFD4029E1BDBE32E009EC2BB /* AftImageAblumController.m in Sources */,
+				DFD4029E1BDBE32E009EC2BB /* AftAlbumController.m in Sources */,
 				DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */,
+				DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */,
 				DFD402A11BDBE33F009EC2BB /* AftMusicController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

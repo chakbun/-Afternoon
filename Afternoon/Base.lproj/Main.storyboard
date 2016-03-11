@@ -11,7 +11,7 @@
         <!--Item-->
         <scene sceneID="nII-kq-r9e">
             <objects>
-                <viewController id="1ct-cP-zv6" customClass="AftImageAblumController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="1ct-cP-zv6" customClass="AftAlbumController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CJO-gD-sYg"/>
                         <viewControllerLayoutGuide type="bottom" id="TWn-Zn-j8Y"/>
@@ -35,15 +35,77 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzn-am-NQ6">
+                                <rect key="frame" x="0.0" y="72" width="600" height="479"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AftAlbumCellID" rowHeight="180" id="VSK-kT-aF4" customClass="AftAlbumCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSK-kT-aF4" id="42G-RZ-lds">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广州街头" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzb-hA-tPE">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="gwG-Vk-hue"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很难想象在广州大都市的街头会有这样写意的场景" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-ML-sum">
+                                                    <rect key="frame" x="8" y="30" width="584" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="5nK-Ud-Zj1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="HEA-H7-9Ip">
+                                                    <rect key="frame" x="8" y="54" width="584" height="118"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sgf-ML-sum" firstAttribute="leading" secondItem="rzb-hA-tPE" secondAttribute="leading" id="1rL-52-2Oa"/>
+                                                <constraint firstItem="rzb-hA-tPE" firstAttribute="top" secondItem="42G-RZ-lds" secondAttribute="topMargin" constant="-8" id="5wm-yX-CYS"/>
+                                                <constraint firstItem="HEA-H7-9Ip" firstAttribute="leading" secondItem="rzb-hA-tPE" secondAttribute="leading" id="EzY-Yk-eaF"/>
+                                                <constraint firstItem="sgf-ML-sum" firstAttribute="trailing" secondItem="rzb-hA-tPE" secondAttribute="trailing" id="H8b-0x-w3C"/>
+                                                <constraint firstItem="sgf-ML-sum" firstAttribute="top" secondItem="rzb-hA-tPE" secondAttribute="bottom" constant="8" id="N1e-4j-r7y"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HEA-H7-9Ip" secondAttribute="bottom" constant="-1" id="V4R-gl-KQi"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="rzb-hA-tPE" secondAttribute="leading" id="XDa-F9-9dB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rzb-hA-tPE" secondAttribute="trailing" id="jI3-aG-eGE"/>
+                                                <constraint firstItem="HEA-H7-9Ip" firstAttribute="top" secondItem="sgf-ML-sum" secondAttribute="bottom" constant="8" id="oWd-NO-bna"/>
+                                                <constraint firstItem="HEA-H7-9Ip" firstAttribute="trailing" secondItem="rzb-hA-tPE" secondAttribute="trailing" id="q44-tp-TK9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumImageView" destination="HEA-H7-9Ip" id="sIZ-UJ-X0D"/>
+                                            <outlet property="albumTitleLabel" destination="rzb-hA-tPE" id="eny-lb-kRn"/>
+                                            <outlet property="introLabel" destination="sgf-ML-sum" id="vHR-NK-tbh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1ct-cP-zv6" id="6ra-8b-8N9"/>
+                                    <outlet property="delegate" destination="1ct-cP-zv6" id="Xb1-1z-iI2"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="1e6-qM-hQD" secondAttribute="trailing" id="Ibo-XD-H7C"/>
+                            <constraint firstItem="Qzn-am-NQ6" firstAttribute="top" secondItem="CJO-gD-sYg" secondAttribute="bottom" constant="8" id="KWf-GC-lTP"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XSX-n1-p7c" secondAttribute="leading" id="LuF-Si-ewc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qzn-am-NQ6" secondAttribute="trailing" constant="-20" id="U7K-ov-xlj"/>
                             <constraint firstItem="XSX-n1-p7c" firstAttribute="top" secondItem="1e6-qM-hQD" secondAttribute="bottom" constant="20" id="UAM-t6-dmh"/>
                             <constraint firstItem="1e6-qM-hQD" firstAttribute="top" secondItem="CJO-gD-sYg" secondAttribute="bottom" constant="8" id="Uk0-Rg-bv9"/>
+                            <constraint firstItem="TWn-Zn-j8Y" firstAttribute="top" secondItem="Qzn-am-NQ6" secondAttribute="bottom" id="ewk-W1-eYt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XSX-n1-p7c" secondAttribute="trailing" id="mp3-2j-EHK"/>
                             <constraint firstAttribute="leadingMargin" secondItem="1e6-qM-hQD" secondAttribute="leading" id="oHo-UE-7D1"/>
+                            <constraint firstItem="Qzn-am-NQ6" firstAttribute="leading" secondItem="mxr-D1-g9B" secondAttribute="leadingMargin" constant="-20" id="wfi-Nw-BaI"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -53,6 +115,9 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XSY-P8-l7s"/>
+                    <connections>
+                        <outlet property="albumTableView" destination="Qzn-am-NQ6" id="dht-hZ-7i9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJD-z7-Eyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
