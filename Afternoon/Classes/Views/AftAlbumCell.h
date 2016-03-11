@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *introLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *introLabelHeightConstraint;
 
 @end

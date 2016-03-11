@@ -9,9 +9,10 @@
 #import "AftMainController.h"
 #import "AftAlbumController.h"
 #import "AftMusicController.h"
+#import "AftWCArticleListController.h"
 #import "UIColor+JRColor.h"
 
-@interface AftMainController ()
+@interface AftMainController ()<UITabBarControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITabBar *menuTabBar;
 
@@ -21,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor themeGreyGreen];
 
     self.navigationController.navigationBar.translucent = YES;
     NSArray *barItemTitles = @[@"照片",@"文章",@"音乐",@"吃点"];
@@ -31,10 +31,25 @@
         barItem.title = barItemTitles[idx];
     }];
     
+    self.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - TabBarDelegate 
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    
+    if ([viewController isKindOfClass:[AftAlbumController class]]) {
+        self.navigationController.title = @"照片";
+    }else if([viewController isKindOfClass:[AftWCArticleListController class]]) {
+        self.navigationController.title = @"文章";
+    }else {
+        self.navigationController.title = @"";
+    }
 }
 
 @end

@@ -56,7 +56,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很难想象在广州大都市的街头会有这样写意的场景" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-ML-sum">
-                                                    <rect key="frame" x="8" y="30" width="584" height="16"/>
+                                                    <rect key="frame" x="8" y="23" width="584" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="5nK-Ud-Zj1"/>
                                                     </constraints>
@@ -65,7 +65,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="HEA-H7-9Ip">
-                                                    <rect key="frame" x="8" y="54" width="584" height="118"/>
+                                                    <rect key="frame" x="8" y="47" width="584" height="104"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -73,8 +73,8 @@
                                                 <constraint firstItem="rzb-hA-tPE" firstAttribute="top" secondItem="42G-RZ-lds" secondAttribute="topMargin" constant="-8" id="5wm-yX-CYS"/>
                                                 <constraint firstItem="HEA-H7-9Ip" firstAttribute="leading" secondItem="rzb-hA-tPE" secondAttribute="leading" id="EzY-Yk-eaF"/>
                                                 <constraint firstItem="sgf-ML-sum" firstAttribute="trailing" secondItem="rzb-hA-tPE" secondAttribute="trailing" id="H8b-0x-w3C"/>
-                                                <constraint firstItem="sgf-ML-sum" firstAttribute="top" secondItem="rzb-hA-tPE" secondAttribute="bottom" constant="8" id="N1e-4j-r7y"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="HEA-H7-9Ip" secondAttribute="bottom" constant="-1" id="V4R-gl-KQi"/>
+                                                <constraint firstItem="sgf-ML-sum" firstAttribute="top" secondItem="rzb-hA-tPE" secondAttribute="bottom" constant="1" id="N1e-4j-r7y"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HEA-H7-9Ip" secondAttribute="bottom" constant="20" id="V4R-gl-KQi"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="rzb-hA-tPE" secondAttribute="leading" id="XDa-F9-9dB"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="rzb-hA-tPE" secondAttribute="trailing" id="jI3-aG-eGE"/>
                                                 <constraint firstItem="HEA-H7-9Ip" firstAttribute="top" secondItem="sgf-ML-sum" secondAttribute="bottom" constant="8" id="oWd-NO-bna"/>
@@ -85,6 +85,7 @@
                                             <outlet property="albumImageView" destination="HEA-H7-9Ip" id="sIZ-UJ-X0D"/>
                                             <outlet property="albumTitleLabel" destination="rzb-hA-tPE" id="eny-lb-kRn"/>
                                             <outlet property="introLabel" destination="sgf-ML-sum" id="vHR-NK-tbh"/>
+                                            <outlet property="introLabelHeightConstraint" destination="5nK-Ud-Zj1" id="lZD-LY-Ef2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

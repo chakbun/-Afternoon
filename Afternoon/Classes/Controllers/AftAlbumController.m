@@ -13,6 +13,7 @@
 #import "AftAlbum.h"
 #import "AftAlbumCell.h"
 #import "AppConstants.h"
+#import "UIColor+JRColor.h"
 
 @interface AftAlbumController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -30,7 +31,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+        
     self.albumArray = [NSMutableArray array];
     self.cellHeightDictionary = [NSMutableDictionary dictionary];
     
@@ -68,8 +69,27 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Private
+
 - (NSString *)keyFromIndexPath:(NSIndexPath *)indexPath {
     return [NSString stringWithFormat:@"key_%i_%i",(int)indexPath.section,(int)indexPath.row];
+}
+
+- (NSAttributedString *)attributestringWithTitle:(NSString *)title author:(NSString *)author {
+
+    
+    NSMutableAttributedString *attributeTitleString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",title,author]];
+    
+    NSRange titleRange = NSMakeRange(0, title.length);
+    NSRange authorRange = NSMakeRange(title.length+1, author.length);
+    
+    //回复评论
+    [attributeTitleString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:titleRange];
+    
+    [attributeTitleString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:13] range:authorRange];
+    [attributeTitleString addAttribute:NSForegroundColorAttributeName value:[UIColor color4SimpleWithRed:111 green:113 blue:121 alpha:1.0] range:authorRange];
+
+    return attributeTitleString;
 }
 
 #pragma mark - TabelView Delegate
@@ -96,25 +116,32 @@
     
 
     __weak __typeof(self) weakSelf = self;
-
+    
+    CGFloat introHeight = [album.intro boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - (MARGINS * 2), MAXFLOAT) options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13.0]} context:nil].size.height;
+    
+    introHeight = MAX(16, introHeight);
+    
+    cell.introLabelHeightConstraint.constant = introHeight;
+    [cell.introLabel sizeToFit];
+    
     [cell.albumImageView sd_setImageWithURL:[NSURL URLWithString:album.imageURL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
         if (!weakSelf.cellHeightDictionary[[weakSelf keyFromIndexPath:indexPath]]) {
             
             CGFloat showHeight = (SCREEN_WIDTH - (MARGINS * 2)) * image.size.height / image.size.width;
-            CGFloat cellHeight = MARGINS + 22 + MARGINS + 16 + MARGINS + showHeight;
+            CGFloat cellHeight = MARGINS + 22 + MARGINS + introHeight + MARGINS + showHeight + 20;
             weakSelf.cellHeightDictionary[[weakSelf keyFromIndexPath:indexPath]] = @(cellHeight);
             [weakSelf.albumTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         
     }];
     
-    cell.albumTitleLabel.text = album.title;
+    cell.albumTitleLabel.attributedText = [self attributestringWithTitle:album.title author:album.author];
+    
     cell.introLabel.text = album.intro;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
-
 
 @end
