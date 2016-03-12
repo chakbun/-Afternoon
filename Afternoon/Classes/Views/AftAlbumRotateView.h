@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AftAblumRotateView : UIView
+@interface AftAlbumRotateView : UIView
 
 @property (nonatomic, strong) UIImage *ablumImage;
 

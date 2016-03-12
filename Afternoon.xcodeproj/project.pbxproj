@@ -17,6 +17,8 @@
 		DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */; };
 		DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */; };
 		DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF21BF5D602007D9AC3 /* AftMedia.m */; };
+		DF6302EB1C946C00003FE874 /* AftAlbumTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6302EA1C946C00003FE874 /* AftAlbumTableHeadView.m */; };
+		DF6302ED1C946C7D003FE874 /* AftAlbumTableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF6302EC1C946C7D003FE874 /* AftAlbumTableHeadView.xib */; };
 		DFC554EE1C5E585A00AF705F /* AftWCArticleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554ED1C5E585A00AF705F /* AftWCArticleListController.m */; };
 		DFC554F11C5E58DC00AF705F /* AftWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554F01C5E58DC00AF705F /* AftWebViewController.m */; };
 		DFC554F41C5E5CD000AF705F /* AftWebModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554F31C5E5CD000AF705F /* AftWebModel.m */; };
@@ -43,7 +45,7 @@
 		DFD4029E1BDBE32E009EC2BB /* AftAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD4029D1BDBE32E009EC2BB /* AftAlbumController.m */; };
 		DFD402A11BDBE33F009EC2BB /* AftMusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD402A01BDBE33F009EC2BB /* AftMusicController.m */; };
 		DFD402A41BDD0E13009EC2BB /* AftMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD402A31BDD0E13009EC2BB /* AftMainController.m */; };
-		DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */; };
+		DFDCC8691BE8AAC0000B945D /* AftAlbumRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDCC8681BE8AAC0000B945D /* AftAlbumRotateView.m */; };
 		DFDCC86E1BE8AF3D000B945D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC86C1BE8AF3D000B945D /* pause.png */; };
 		DFDCC86F1BE8AF3D000B945D /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC86D1BE8AF3D000B945D /* start.png */; };
 		DFDCC8711BE8B009000B945D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = DFDCC8701BE8B009000B945D /* avatar.png */; };
@@ -81,6 +83,9 @@
 		DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AftMedia+CoreDataProperties.m"; sourceTree = "<group>"; };
 		DF38BAF11BF5D602007D9AC3 /* AftMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftMedia.h; sourceTree = "<group>"; };
 		DF38BAF21BF5D602007D9AC3 /* AftMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftMedia.m; sourceTree = "<group>"; };
+		DF6302E91C946C00003FE874 /* AftAlbumTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbumTableHeadView.h; sourceTree = "<group>"; };
+		DF6302EA1C946C00003FE874 /* AftAlbumTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbumTableHeadView.m; sourceTree = "<group>"; };
+		DF6302EC1C946C7D003FE874 /* AftAlbumTableHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AftAlbumTableHeadView.xib; sourceTree = "<group>"; };
 		DFC554EC1C5E585A00AF705F /* AftWCArticleListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWCArticleListController.h; sourceTree = "<group>"; };
 		DFC554ED1C5E585A00AF705F /* AftWCArticleListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWCArticleListController.m; sourceTree = "<group>"; };
 		DFC554EF1C5E58DC00AF705F /* AftWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWebViewController.h; sourceTree = "<group>"; };
@@ -117,8 +122,8 @@
 		DFD402A01BDBE33F009EC2BB /* AftMusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftMusicController.m; sourceTree = "<group>"; };
 		DFD402A21BDD0E13009EC2BB /* AftMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftMainController.h; sourceTree = "<group>"; };
 		DFD402A31BDD0E13009EC2BB /* AftMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftMainController.m; sourceTree = "<group>"; };
-		DFDCC8671BE8AAC0000B945D /* AftAblumRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAblumRotateView.h; sourceTree = "<group>"; };
-		DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAblumRotateView.m; sourceTree = "<group>"; };
+		DFDCC8671BE8AAC0000B945D /* AftAlbumRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbumRotateView.h; sourceTree = "<group>"; };
+		DFDCC8681BE8AAC0000B945D /* AftAlbumRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbumRotateView.m; sourceTree = "<group>"; };
 		DFDCC86C1BE8AF3D000B945D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		DFDCC86D1BE8AF3D000B945D /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		DFDCC8701BE8B009000B945D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
@@ -326,10 +331,13 @@
 		DFDCC8661BE8A82E000B945D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DFDCC8671BE8AAC0000B945D /* AftAblumRotateView.h */,
-				DFDCC8681BE8AAC0000B945D /* AftAblumRotateView.m */,
+				DFDCC8671BE8AAC0000B945D /* AftAlbumRotateView.h */,
+				DFDCC8681BE8AAC0000B945D /* AftAlbumRotateView.m */,
 				DF11AEA21C9296A40065520C /* AftAlbumCell.h */,
 				DF11AEA31C9296A40065520C /* AftAlbumCell.m */,
+				DF6302E91C946C00003FE874 /* AftAlbumTableHeadView.h */,
+				DF6302EA1C946C00003FE874 /* AftAlbumTableHeadView.m */,
+				DF6302EC1C946C7D003FE874 /* AftAlbumTableHeadView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,6 +450,7 @@
 				DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */,
 				51D33DB61C8450B600DFE83E /* LaunchScreen.storyboard in Resources */,
 				DFDCC8711BE8B009000B945D /* avatar.png in Resources */,
+				DF6302ED1C946C7D003FE874 /* AftAlbumTableHeadView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,8 +523,9 @@
 				DFD402741BDBC73A009EC2BB /* AppDelegate.m in Sources */,
 				DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */,
 				DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */,
+				DF6302EB1C946C00003FE874 /* AftAlbumTableHeadView.m in Sources */,
 				DFD4029E1BDBE32E009EC2BB /* AftAlbumController.m in Sources */,
-				DFDCC8691BE8AAC0000B945D /* AftAblumRotateView.m in Sources */,
+				DFDCC8691BE8AAC0000B945D /* AftAlbumRotateView.m in Sources */,
 				DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */,
 				DFD402A11BDBE33F009EC2BB /* AftMusicController.m in Sources */,
 			);

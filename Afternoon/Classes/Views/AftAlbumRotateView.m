@@ -6,15 +6,15 @@
 //  Copyright © 2015年 After. All rights reserved.
 //
 
-#import "AftAblumRotateView.h"
+#import "AftAlbumRotateView.h"
 #import "Masonry.h"
 
-@interface AftAblumRotateView ()
+@interface AftAlbumRotateView ()
 @property (nonatomic, strong) UIImageView *ablumImageView;
 @property (nonatomic, strong) UIImageView *buttonImageView;
 @end
 
-@implementation AftAblumRotateView
+@implementation AftAlbumRotateView
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
