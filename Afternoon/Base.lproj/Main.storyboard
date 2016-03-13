@@ -38,11 +38,41 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzn-am-NQ6">
                                 <rect key="frame" x="0.0" y="72" width="600" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="1Mx-Pu-EP5">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="街头" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3x-HA-god">
+                                            <rect key="frame" x="8" y="0.0" width="584" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="KMV-HB-8cg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行到街头乃有汽车驶过，乃有邮筒寂寞，邮筒PO，乃记不起汽车号码X，乃有阿拉伯数字寂寞，汽车寂寞，大街寂寞，人类寂寞。--废名 \n接下来让我们看看本期的推介的作品：\n\n" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7V-eK-UC8">
+                                            <rect key="frame" x="8" y="20" width="584" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="d3x-HA-god" firstAttribute="leading" secondItem="1Mx-Pu-EP5" secondAttribute="leading" constant="8" id="Lz6-zA-Yj4"/>
+                                        <constraint firstAttribute="bottom" secondItem="D7V-eK-UC8" secondAttribute="bottom" id="Oek-El-pay"/>
+                                        <constraint firstAttribute="trailing" secondItem="d3x-HA-god" secondAttribute="trailing" constant="8" id="SPV-Uz-IjA"/>
+                                        <constraint firstAttribute="trailing" secondItem="D7V-eK-UC8" secondAttribute="trailing" constant="8" id="cLc-HW-D1a"/>
+                                        <constraint firstItem="D7V-eK-UC8" firstAttribute="top" secondItem="d3x-HA-god" secondAttribute="bottom" constant="-2" id="djc-nU-GFA"/>
+                                        <constraint firstItem="d3x-HA-god" firstAttribute="top" secondItem="1Mx-Pu-EP5" secondAttribute="top" id="pUv-G8-aPO"/>
+                                        <constraint firstItem="D7V-eK-UC8" firstAttribute="leading" secondItem="1Mx-Pu-EP5" secondAttribute="leading" constant="8" id="tmb-bK-2GR"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AftAlbumCellID" rowHeight="180" id="VSK-kT-aF4" customClass="AftAlbumCell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="180"/>
+                                        <rect key="frame" x="0.0" y="90" width="600" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSK-kT-aF4" id="42G-RZ-lds">
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSK-kT-aF4" id="42G-RZ-lds">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -117,7 +147,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="XSY-P8-l7s"/>
                     <connections>
+                        <outlet property="albumHeadDetail" destination="D7V-eK-UC8" id="63B-C4-8HE"/>
+                        <outlet property="albumHeadTitle" destination="d3x-HA-god" id="pgp-ge-7OU"/>
                         <outlet property="albumTableView" destination="Qzn-am-NQ6" id="dht-hZ-7i9"/>
+                        <outlet property="headView" destination="1Mx-Pu-EP5" id="BPB-Pg-M2F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJD-z7-Eyc" userLabel="First Responder" sceneMemberID="firstResponder"/>

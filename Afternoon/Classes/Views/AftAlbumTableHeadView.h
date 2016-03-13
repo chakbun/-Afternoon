@@ -10,4 +10,13 @@
 
 @interface AftAlbumTableHeadView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *themeLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *detailLabel;
+
+
+- (void)setTheme:(NSString *)theme;
+
+- (void)setDetail:(NSString *)detail;
+
 @end

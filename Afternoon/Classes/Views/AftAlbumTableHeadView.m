@@ -10,4 +10,16 @@
 
 @implementation AftAlbumTableHeadView
 
+- (void)awakeFromNib {
+    self.detailLabel.contentInset = UIEdgeInsetsMake(5.0f, 20.0f, 5.0f, 0.f);
+}
+
+- (void)setTheme:(NSString *)theme {
+    self.themeLabel.text = [NSString stringWithFormat:@"%@",theme];
+}
+
+- (void)setDetail:(NSString *)detail {
+    self.detailLabel.text = detail;
+}
+
 @end

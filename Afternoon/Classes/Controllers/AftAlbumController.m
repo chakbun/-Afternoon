@@ -13,7 +13,9 @@
 #import "AftAlbum.h"
 #import "AftAlbumCell.h"
 #import "AppConstants.h"
+#import "AftAlbumTableHeadView.h"
 #import "UIColor+JRColor.h"
+#import "Masonry.h"
 
 @interface AftAlbumController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -23,6 +25,10 @@
 @property (nonatomic, strong) NSMutableArray *albumArray;
 
 @property (nonatomic, strong) NSMutableDictionary *cellHeightDictionary;
+
+@property (weak, nonatomic) IBOutlet UIView *headView;
+@property (weak, nonatomic) IBOutlet UILabel *albumHeadTitle;
+@property (weak, nonatomic) IBOutlet UILabel *albumHeadDetail;
 
 @end
 
@@ -62,6 +68,11 @@
     }];
     
     self.albumTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // init table header
+    self.albumHeadTitle.text = @"街头";
+    self.albumHeadDetail.text = @"行到街头乃有汽车驶过，乃有邮筒寂寞，邮筒PO，乃记不起汽车号码X，乃有阿拉伯数字寂寞，汽车寂寞，大街寂寞，人类寂寞。--废名 \n接下来让我们看看本期的推介的作品：\n\n";
+    
     self.albumTableView.tableFooterView = [UIView new];
 }
 
