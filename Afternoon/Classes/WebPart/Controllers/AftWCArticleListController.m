@@ -35,12 +35,11 @@
     __weak __typeof(self) weakSelf = self;
 
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"table_web"];
+    [bquery orderByDescending:@"createDate"];
+    
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
-        [array enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            
-            BmobObject *bmobObj = obj;
-            
+        for(BmobObject *bmobObj in array) {
             NSLog(@"============ 日期: %@============",bmobObj.createdAt);
             NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
             NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
@@ -58,13 +57,39 @@
             webModel.previewImage = fileInfo.url;
             
             [weakSelf.articleList addObject:webModel];
-            [weakSelf.articleTableview reloadData];
-        }];
+        }
+//        [array enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            
+//            BmobObject *bmobObj = obj;
+//            
+//            NSLog(@"============ 日期: %@============",bmobObj.createdAt);
+//            NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
+//            NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
+//            NSLog(@"============ 作者：%@ ============", [bmobObj objectForKey:@"author"]);
+//            NSLog(@"============ URL：%@ ============", [bmobObj objectForKey:@"url"]);
+//            
+//            BmobFile *fileInfo = [bmobObj objectForKey:@"previewImage"];
+//            
+//            AftWebModel *webModel = [AftWebModel new];
+//            webModel.url = [bmobObj objectForKey:@"url"];
+//            webModel.title = [bmobObj objectForKey:@"title"];
+//            webModel.author = [bmobObj objectForKey:@"author"];
+//            webModel.previewContent = [bmobObj objectForKey:@"previewContent"];
+//            webModel.createDate = [bmobObj objectForKey:@"createDate"];
+//            webModel.previewImage = fileInfo.url;
+//            
+//            [weakSelf.articleList addObject:webModel];
+//        }];
+        
+        [weakSelf.articleTableview reloadData];
+
     }];
     
     //init formatter
     self.yyyyMMddFormatter = [NSDateFormatter new];
     self.yyyyMMddFormatter.dateFormat = @"yyyy-MM-dd";
+    
+    self.articleTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 
@@ -92,7 +117,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    return 287;
 }
 
 #pragma mark - TabelView DataSource
@@ -107,6 +132,7 @@
     
     cell.articleTitleLabel.text = webModel.title;
     cell.articleDetailLabel.text = [self.yyyyMMddFormatter stringFromDate:webModel.createDate];
+    cell.preContentLabel.text = webModel.previewContent;
     [cell.artImageView sd_setImageWithURL:[NSURL URLWithString:webModel.previewImage] placeholderImage:[UIImage imageNamed:@"google"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

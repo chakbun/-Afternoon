@@ -18,4 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *artImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *preContentLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *preContentLabelHeightConstraint;
+
 @end
