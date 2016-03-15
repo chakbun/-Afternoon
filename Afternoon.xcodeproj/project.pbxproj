@@ -14,6 +14,7 @@
 		AC24A21745C6E749CAEE5BD1 /* libPods-Afternoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA25902DC1C6F6A56994206A /* libPods-Afternoon.a */; };
 		DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF11AEA31C9296A40065520C /* AftAlbumCell.m */; };
 		DF11AEA71C929C6B0065520C /* AftAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DF11AEA61C929C6B0065520C /* AftAlbum.m */; };
+		DF18BFC21C97E801005173C8 /* JRPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF18BFC11C97E801005173C8 /* JRPhotoViewer.m */; };
 		DF38BAE71BF5D3F0007D9AC3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAE51BF5D3F0007D9AC3 /* Model.xcdatamodeld */; };
 		DF38BAF31BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */; };
 		DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF21BF5D602007D9AC3 /* AftMedia.m */; };
@@ -77,6 +78,8 @@
 		DF11AEA51C929C6B0065520C /* AftAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbum.h; sourceTree = "<group>"; };
 		DF11AEA61C929C6B0065520C /* AftAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbum.m; sourceTree = "<group>"; };
 		DF11AEA81C92B8E00065520C /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		DF18BFC01C97E801005173C8 /* JRPhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRPhotoViewer.h; sourceTree = "<group>"; };
+		DF18BFC11C97E801005173C8 /* JRPhotoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRPhotoViewer.m; sourceTree = "<group>"; };
 		DF38BAE61BF5D3F0007D9AC3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DF38BAEF1BF5D602007D9AC3 /* AftMedia+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AftMedia+CoreDataProperties.h"; sourceTree = "<group>"; };
 		DF38BAF01BF5D602007D9AC3 /* AftMedia+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AftMedia+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				DF11AEA31C9296A40065520C /* AftAlbumCell.m */,
 				DF6302E91C946C00003FE874 /* AftAlbumTableHeadView.h */,
 				DF6302EA1C946C00003FE874 /* AftAlbumTableHeadView.m */,
+				DF18BFC01C97E801005173C8 /* JRPhotoViewer.h */,
+				DF18BFC11C97E801005173C8 /* JRPhotoViewer.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				DFD4029E1BDBE32E009EC2BB /* AftAlbumController.m in Sources */,
 				DFDCC8691BE8AAC0000B945D /* AftAlbumRotateView.m in Sources */,
 				DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */,
+				DF18BFC21C97E801005173C8 /* JRPhotoViewer.m in Sources */,
 				DFD402A11BDBE33F009EC2BB /* AftMusicController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

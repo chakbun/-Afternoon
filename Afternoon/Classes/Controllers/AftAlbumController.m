@@ -16,6 +16,7 @@
 #import "AftAlbumTableHeadView.h"
 #import "UIColor+JRColor.h"
 #import "Masonry.h"
+#import "JRPhotoViewer.h"
 
 @interface AftAlbumController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -30,10 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumHeadTitle;
 @property (weak, nonatomic) IBOutlet UILabel *albumHeadDetail;
 
-@property (nonatomic, strong) UIView *maskBlackView;
-@property (nonatomic, strong) UIImageView *showImageView;
-
-@property (nonatomic, assign) CGRect tapRect;
+@property (nonatomic, strong) JRPhotoViewer *photoViewer;
 
 @end
 
@@ -100,12 +98,9 @@
     self.albumTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.albumTableView.tableFooterView = [UIView new];
     
-    self.maskBlackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    self.maskBlackView.backgroundColor = [UIColor blackColor];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskViewTapAction:)];
-    [self.maskBlackView addGestureRecognizer:tapGesture];
-    [self.tabBarController.navigationController.view addSubview:self.maskBlackView];
-    [self showMaskBlackView:NO];
+    self.photoViewer = [[JRPhotoViewer alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [self.tabBarController.navigationController.view addSubview:self.photoViewer];
+    [self.photoViewer showPhotoViewer:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,22 +108,6 @@
 }
 
 #pragma mark - Private
-
-- (void)maskViewTapAction:(UIGestureRecognizer *)gesture {
-    
-    __weak __typeof(self) weakSelf = self;
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        weakSelf.showImageView.frame = weakSelf.tapRect;
-        [weakSelf showMaskBlackView:NO];
-    } completion:^(BOOL finished) {
-        [weakSelf.showImageView removeFromSuperview];
-    }];
-}
-
-- (void)showMaskBlackView:(BOOL)show {
-    self.maskBlackView.alpha = show?1.0:0.0;
-}
 
 - (NSString *)keyFromIndexPath:(NSIndexPath *)indexPath {
     return [NSString stringWithFormat:@"key_%i_%i",(int)indexPath.section,(int)indexPath.row];
@@ -201,24 +180,16 @@
 
         CGRect rectInView = [wsCell convertRect:wsCell.albumImageView.frame toView:weakSelf.tabBarController.navigationController.view];
         
-        weakSelf.tapRect = rectInView;
+        weakSelf.photoViewer.tapRect = rectInView;
         
-        CGFloat showHeight = SCREEN_WIDTH * rectInView.size.height / rectInView.size.width;
-
-        if (!weakSelf.showImageView) {
-            weakSelf.showImageView = [[UIImageView alloc] initWithFrame:imageView.bounds];
+        if (!weakSelf.photoViewer.imageView) {
+            weakSelf.photoViewer.imageView = [[UIImageView alloc] initWithFrame:imageView.bounds];
         }
         
-        weakSelf.showImageView.image = imageView.image;
-        weakSelf.showImageView.frame = rectInView;
-        [weakSelf.maskBlackView addSubview:weakSelf.showImageView];
-        
-        [UIView animateWithDuration:0.4 animations:^{
-            weakSelf.showImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, showHeight);
-            weakSelf.showImageView.center = weakSelf.maskBlackView.center;
-            [weakSelf showMaskBlackView:YES];
+        weakSelf.photoViewer.imageView.image = imageView.image;
+        weakSelf.photoViewer.imageView.frame = rectInView;
+        [weakSelf.photoViewer showPhotoViewer:YES];
 
-        }];
     };
     
     cell.albumTitleLabel.attributedText = [self attributestringWithTitle:album.title author:album.author];
