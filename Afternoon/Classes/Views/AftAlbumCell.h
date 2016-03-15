@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *albumTitleLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *introLabel;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *introLabelHeightConstraint;
+
+@property (nonatomic, strong) void (^didImageTapBlock)(UIImageView *imageView);
 
 @end
