@@ -40,11 +40,11 @@
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         for(BmobObject *bmobObj in array) {
-            NSLog(@"============ 日期: %@============",bmobObj.createdAt);
-            NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
-            NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
-            NSLog(@"============ 作者：%@ ============", [bmobObj objectForKey:@"author"]);
-            NSLog(@"============ URL：%@ ============", [bmobObj objectForKey:@"url"]);
+//            NSLog(@"============ 日期: %@============",bmobObj.createdAt);
+//            NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
+//            NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
+//            NSLog(@"============ 作者：%@ ============", [bmobObj objectForKey:@"author"]);
+//            NSLog(@"============ URL：%@ ============", [bmobObj objectForKey:@"url"]);
             
             BmobFile *fileInfo = [bmobObj objectForKey:@"previewImage"];
             
@@ -58,28 +58,6 @@
             
             [weakSelf.articleList addObject:webModel];
         }
-//        [array enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//            
-//            BmobObject *bmobObj = obj;
-//            
-//            NSLog(@"============ 日期: %@============",bmobObj.createdAt);
-//            NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
-//            NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
-//            NSLog(@"============ 作者：%@ ============", [bmobObj objectForKey:@"author"]);
-//            NSLog(@"============ URL：%@ ============", [bmobObj objectForKey:@"url"]);
-//            
-//            BmobFile *fileInfo = [bmobObj objectForKey:@"previewImage"];
-//            
-//            AftWebModel *webModel = [AftWebModel new];
-//            webModel.url = [bmobObj objectForKey:@"url"];
-//            webModel.title = [bmobObj objectForKey:@"title"];
-//            webModel.author = [bmobObj objectForKey:@"author"];
-//            webModel.previewContent = [bmobObj objectForKey:@"previewContent"];
-//            webModel.createDate = [bmobObj objectForKey:@"createDate"];
-//            webModel.previewImage = fileInfo.url;
-//            
-//            [weakSelf.articleList addObject:webModel];
-//        }];
         
         [weakSelf.articleTableview reloadData];
 
