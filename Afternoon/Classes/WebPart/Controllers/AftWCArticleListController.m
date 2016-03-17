@@ -40,11 +40,6 @@
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         for(BmobObject *bmobObj in array) {
-//            NSLog(@"============ 日期: %@============",bmobObj.createdAt);
-//            NSLog(@"============ 标题：%@ ============", [bmobObj objectForKey:@"title"]);
-//            NSLog(@"============ 内容：%@ ============", [bmobObj objectForKey:@"previewContent"]);
-//            NSLog(@"============ 作者：%@ ============", [bmobObj objectForKey:@"author"]);
-//            NSLog(@"============ URL：%@ ============", [bmobObj objectForKey:@"url"]);
             
             BmobFile *fileInfo = [bmobObj objectForKey:@"previewImage"];
             

@@ -26,6 +26,7 @@
     self.navigationController.navigationBar.translucent = YES;
     NSArray *barItemTitles = @[@"照片",@"文章",@"音乐",@"吃点"];
     
+    
     [self.menuTabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *obj, NSUInteger idx, BOOL *stop) {
         UIBarItem *barItem = obj;
         barItem.title = barItemTitles[idx];
@@ -44,11 +45,11 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     
     if ([viewController isKindOfClass:[AftAlbumController class]]) {
-        self.navigationController.title = @"照片";
+        self.title = @"照片";
     }else if([viewController isKindOfClass:[AftWCArticleListController class]]) {
-        self.navigationController.title = @"文章";
+        self.title = @"文章";
     }else {
-        self.navigationController.title = @"";
+        self.title = @"";
     }
 }
 
