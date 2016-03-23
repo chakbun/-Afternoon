@@ -17,6 +17,7 @@
 #import "UIColor+JRColor.h"
 #import "Masonry.h"
 #import "JRPhotoViewer.h"
+#import <ShareSDK/ShareSDK.h>
 
 @interface AftAlbumController ()<UITableViewDataSource,UITableViewDelegate>
 
