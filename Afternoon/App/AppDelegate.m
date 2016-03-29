@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.backgroundColor = [UIColor whiteColor];
     [Bmob registerWithAppKey:@"aba90becf7c1a8f0df9f8bfbc00ad883"];
+    
     return YES;
 }
 
