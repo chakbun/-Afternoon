@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 typedef NS_ENUM(NSInteger, JRShareType) {
     JRShareTypeWeibo = 1,
@@ -16,7 +18,11 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 @interface JRShareManager : NSObject
 
+@property (nonatomic, strong) void(^mailShareResultBlock)(MFMailComposeResult result, NSError *error);
+
 + (instancetype)shareManager;
+
+// weibo
 
 - (void)initWeiboSetting;
 
@@ -24,8 +30,14 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 - (BOOL)handlerURL:(NSURL *)url type:(JRShareType)type;
 
-- (void)shareMessage:(NSString *)message;
-
 - (BOOL)isWeiBoAuthorized;
+
+- (void)post2SinaWeibo:(NSString *)content image:(UIImage *)image imageURL:(NSString *)imageURL byApp:(BOOL)byApp completed:(void(^)(NSError *err))completed;
+
+
+//mail
+- (BOOL)canSendMail;
+
+- (UIViewController *)mailControllerWithSubject:(NSString *)subject body:(NSString *)body image:(UIImage *)image;
 
 @end

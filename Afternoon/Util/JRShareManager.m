@@ -12,7 +12,7 @@
 NSString *const kWeiBoAPP_KEY = @"1974935371";
 NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 
-@interface JRShareManager ()<WeiboSDKDelegate>
+@interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSString *wbAccessToken;
 @property (nonatomic, strong) NSString *wbUserID;
@@ -41,6 +41,33 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
     return self;
 }
 
+#pragma mark - Mail
+
+- (BOOL)canSendMail {
+    return [MFMailComposeViewController canSendMail];
+}
+
+- (UIViewController *)mailControllerWithSubject:(NSString *)subject body:(NSString *)body image:(UIImage *)image{
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    controller.mailComposeDelegate = self;
+    [controller setSubject:subject];
+    [controller setMessageBody:body isHTML:YES];
+    NSData *data = UIImageJPEGRepresentation(image, 0.3);
+    [controller addAttachmentData:data mimeType:@"image/jpeg" fileName:@"image.jpg"];
+    return controller;
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    __weak __typeof(self) weakSelf = self;
+
+    [controller dismissViewControllerAnimated:YES completion:^{
+        if (weakSelf.mailShareResultBlock) {
+            weakSelf.mailShareResultBlock(result, error);
+        }
+    }];
+}
+
 #pragma mark - Weibo
 
 - (BOOL)isWeiBoAuthorized {
@@ -59,12 +86,8 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
     [WeiboSDK sendRequest:request];
 }
 
-- (void)shareMessage:(NSString *)message {
-    
+- (void)post2SinaWeibo:(NSString *)content image:(UIImage *)image imageURL:(NSString *)imageURL byApp:(BOOL)byApp completed:(void(^)(NSError *err))completed {
 
-}
-
-- (void)post2SinaWeibo:(NSString *)content image:(UIImage *)image byApp:(BOOL)byApp completed:(void(^)(NSError *err))completed {
     
     if (byApp) {
         
@@ -85,10 +108,17 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
         
     }else {
         
-        WBImageObject *imageObject = [WBImageObject object];
-        [WBHttpRequest requestForShareAStatus:content contatinsAPicture:imageObject orPictureUrl:nil withAccessToken:self.wbAccessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+        WBImageObject *imageObject = nil;
+        
+        if (image) {
+            imageObject = [WBImageObject object];
+            imageObject.imageData =  UIImageJPEGRepresentation(image, 0.3);
+        }
+
+        [WBHttpRequest requestForShareAStatus:content contatinsAPicture:imageObject orPictureUrl:imageURL withAccessToken:self.wbAccessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
             
             NSLog(@"============ err:%@ result:%@ ============",error, result);
+            completed(error);
             
             
         }];
@@ -104,7 +134,7 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 }
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
-    NSLog(@"============request %@ ============",request);
+
 
 }
 

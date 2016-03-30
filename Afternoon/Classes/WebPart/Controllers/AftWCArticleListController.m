@@ -78,8 +78,11 @@
         
         AftWebViewController *webViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.articleTableview indexPathForCell:sender];
+        
+        AftWCArticleCell *cell = [self.articleTableview cellForRowAtIndexPath:indexPath];
         AftWebModel *webModel = self.articleList[indexPath.row];
         webViewController.webModel = webModel;
+        webViewController.coverImage = cell.artImageView.image;
     }
 }
 

@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) AftWebModel *webModel;
 
+@property (nonatomic, strong) UIImage *coverImage;
+
 @end
