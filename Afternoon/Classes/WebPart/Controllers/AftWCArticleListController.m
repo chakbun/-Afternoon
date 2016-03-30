@@ -79,7 +79,7 @@
         AftWebViewController *webViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.articleTableview indexPathForCell:sender];
         AftWebModel *webModel = self.articleList[indexPath.row];
-        webViewController.webURL = webModel.url;
+        webViewController.webModel = webModel;
     }
 }
 

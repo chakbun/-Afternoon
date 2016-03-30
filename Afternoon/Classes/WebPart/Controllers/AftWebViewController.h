@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AftWebModel.h"
 
 @interface AftWebViewController : UIViewController
 
-@property (nonatomic, strong) NSString *webURL;
+@property (nonatomic, strong) AftWebModel *webModel;
 
 @end

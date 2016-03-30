@@ -17,6 +17,7 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 @property (nonatomic, strong) NSString *wbAccessToken;
 @property (nonatomic, strong) NSString *wbUserID;
 @property (nonatomic, strong) NSString *wbRefreshToken;
+
 @end
 
 @implementation JRShareManager
@@ -42,6 +43,10 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 
 #pragma mark - Weibo
 
+- (BOOL)isWeiBoAuthorized {
+    return self.wbAccessToken != nil;
+}
+
 - (void)initWeiboSetting {
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kWeiBoAPP_KEY];
@@ -56,11 +61,42 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 
 - (void)shareMessage:(NSString *)message {
     
-    WBMessageObject *messageObject = [WBMessageObject message];
-    messageObject.text = message;
+
+}
+
+- (void)post2SinaWeibo:(NSString *)content image:(UIImage *)image byApp:(BOOL)byApp completed:(void(^)(NSError *err))completed {
     
-    WBProvideMessageForWeiboResponse *response = [WBProvideMessageForWeiboResponse responseWithMessage:messageObject];
-    [WeiboSDK sendResponse:response];
+    if (byApp) {
+        
+        WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+        authRequest.redirectURI = kWeiBoAPP_DIRECT_URL;
+        authRequest.scope = @"all";
+        
+        WBMessageObject *messageObj = [WBMessageObject message];
+        
+        WBWebpageObject *webpage = [WBWebpageObject object];
+        webpage.objectID = @"identifier1";
+        webpage.title = content;
+        webpage.thumbnailData = UIImageJPEGRepresentation(image, 0.3);
+        messageObj.mediaObject = webpage;
+        
+        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:messageObj authInfo:authRequest access_token:self.wbAccessToken];
+        [WeiboSDK sendRequest:request];
+        
+    }else {
+        
+        WBImageObject *imageObject = [WBImageObject object];
+        [WBHttpRequest requestForShareAStatus:content contatinsAPicture:imageObject orPictureUrl:nil withAccessToken:self.wbAccessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+            
+            NSLog(@"============ err:%@ result:%@ ============",error, result);
+            
+            
+        }];
+        
+        
+    }
+    
+    
 }
 
 - (BOOL)handlerURL:(NSURL *)url type:(JRShareType)type {

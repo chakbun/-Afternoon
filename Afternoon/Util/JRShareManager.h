@@ -26,4 +26,6 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 - (void)shareMessage:(NSString *)message;
 
+- (BOOL)isWeiBoAuthorized;
+
 @end
