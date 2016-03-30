@@ -42,7 +42,7 @@
 
     UIAlertController *alertViewController = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
 
-    NSString *shareText = [NSString stringWithFormat:@"午后:%@ %@",self.webModel.previewContent,self.webModel.url];
+    NSString *shareText = [NSString stringWithFormat:@"午后分享: %@ %@",self.webModel.previewContent,self.webModel.url];
     
     UIAlertAction *weiboAction = [UIAlertAction actionWithTitle:@"新浪微博" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
@@ -70,6 +70,12 @@
     
     UIAlertAction *iMessageAction = [UIAlertAction actionWithTitle:@"iMessage" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
+        if([[JRShareManager shareManager] canSendMessage]) {
+            
+            UIViewController *mailController = [[JRShareManager shareManager] messageControllerWithBody:shareText];
+            [weakSelf presentViewController:mailController animated:YES completion:nil];
+            
+        }
         
     }];
     
@@ -96,6 +102,7 @@
     
     [alertViewController addAction:weiboAction];
     [alertViewController addAction:emailAction];
+    [alertViewController addAction:iMessageAction];
     [alertViewController addAction:cancelAction];
     
     [self presentViewController:alertViewController animated:YES completion:nil];

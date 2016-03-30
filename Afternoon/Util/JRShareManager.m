@@ -12,7 +12,7 @@
 NSString *const kWeiBoAPP_KEY = @"1974935371";
 NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 
-@interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate>
+@interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSString *wbAccessToken;
 @property (nonatomic, strong) NSString *wbUserID;
@@ -39,6 +39,26 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
         
     }
     return self;
+}
+
+#pragma mark - iMessage
+
+- (BOOL)canSendMessage {
+    return [MFMessageComposeViewController canSendText];
+}
+
+- (UIViewController *)messageControllerWithBody:(NSString *)body {
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    messageController.body = body;
+    return messageController;
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    
+    [controller dismissViewControllerAnimated:YES completion:^{
+
+    }];
 }
 
 #pragma mark - Mail

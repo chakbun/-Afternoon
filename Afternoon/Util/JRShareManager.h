@@ -40,4 +40,10 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 - (UIViewController *)mailControllerWithSubject:(NSString *)subject body:(NSString *)body image:(UIImage *)image;
 
+//message
+- (BOOL)canSendMessage;
+
+- (UIViewController *)messageControllerWithBody:(NSString *)body;
+
+
 @end
