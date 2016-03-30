@@ -7,6 +7,7 @@
 //
 
 #import "AftWebViewController.h"
+#import "JRShareManager.h"
 
 @interface AftWebViewController ()
 
@@ -35,6 +36,9 @@
 #pragma mark - Button Action
 
 - (void)shareButtonAction:(id)sender {
+    
+    [[JRShareManager shareManager] authorizeWeibo];
+//    [[JRShareManager shareManager] shareMessage:@"xxx"];
     
 }
 

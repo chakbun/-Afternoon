@@ -12,6 +12,7 @@
 		51D33DB61C8450B600DFE83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D33DB41C8450B600DFE83E /* LaunchScreen.storyboard */; };
 		51D33DB81C84515100DFE83E /* launchImage1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D33DB71C84515100DFE83E /* launchImage1136.png */; };
 		AC24A21745C6E749CAEE5BD1 /* libPods-Afternoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA25902DC1C6F6A56994206A /* libPods-Afternoon.a */; };
+		DF06EBFC1CAA71D30035CEEE /* JRShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF06EBFB1CAA71D30035CEEE /* JRShareManager.m */; };
 		DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF11AEA31C9296A40065520C /* AftAlbumCell.m */; };
 		DF11AEA71C929C6B0065520C /* AftAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DF11AEA61C929C6B0065520C /* AftAlbum.m */; };
 		DF18BFC21C97E801005173C8 /* JRPhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF18BFC11C97E801005173C8 /* JRPhotoViewer.m */; };
@@ -78,6 +79,8 @@
 		51D33DB71C84515100DFE83E /* launchImage1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage1136.png; sourceTree = "<group>"; };
 		889AC6541F5BE4AFC73EA1B8 /* Pods-Afternoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Afternoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Afternoon/Pods-Afternoon.release.xcconfig"; sourceTree = "<group>"; };
 		A13D03F74AE8FE14D8B068EC /* Pods-Afternoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Afternoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Afternoon/Pods-Afternoon.debug.xcconfig"; sourceTree = "<group>"; };
+		DF06EBFA1CAA71D30035CEEE /* JRShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRShareManager.h; sourceTree = "<group>"; };
+		DF06EBFB1CAA71D30035CEEE /* JRShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRShareManager.m; sourceTree = "<group>"; };
 		DF11AEA21C9296A40065520C /* AftAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbumCell.h; sourceTree = "<group>"; };
 		DF11AEA31C9296A40065520C /* AftAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbumCell.m; sourceTree = "<group>"; };
 		DF11AEA51C929C6B0065520C /* AftAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbum.h; sourceTree = "<group>"; };
@@ -191,6 +194,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DF06EBF91CAA71AE0035CEEE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DF06EBFA1CAA71D30035CEEE /* JRShareManager.h */,
+				DF06EBFB1CAA71D30035CEEE /* JRShareManager.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		DF38BAEE1BF5D602007D9AC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +267,7 @@
 		DFD402551BDBC653009EC2BB /* Afternoon */ = {
 			isa = PBXGroup;
 			children = (
+				DF06EBF91CAA71AE0035CEEE /* Util */,
 				DFDCC86A1BE8AF3D000B945D /* Resource */,
 				DFD402951BDBE275009EC2BB /* Framework */,
 				DFD4027A1BDBD1BA009EC2BB /* Lib */,
@@ -550,6 +563,7 @@
 				DF11AEA41C9296A40065520C /* AftAlbumCell.m in Sources */,
 				DF18BFC21C97E801005173C8 /* JRPhotoViewer.m in Sources */,
 				DFD402A11BDBE33F009EC2BB /* AftMusicController.m in Sources */,
+				DF06EBFC1CAA71D30035CEEE /* JRShareManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
