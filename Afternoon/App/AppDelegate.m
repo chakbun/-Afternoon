@@ -24,8 +24,7 @@
     [Bmob registerWithAppKey:@"aba90becf7c1a8f0df9f8bfbc00ad883"];
     
     [[JRShareManager shareManager] initWeiboSetting];
-    
-    
+    [[JRShareManager shareManager] initWeChatSetting];
     
     return YES;
 }
@@ -51,12 +50,29 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWeibo];
+    NSLog(@"============ sourceApplication %@============",sourceApplication);
+
+    if ([url.absoluteString containsString:kWeChatAPP_KEY]) {
+        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWechat];
+        
+    }else if([url.absoluteString containsString:kWeiBoAPP_KEY]) {
+        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWeibo];
+        
+    }
+    return NO;
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     
-    return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWeibo];
+    NSLog(@"============ options %@============",options);
+    if ([url.absoluteString containsString:kWeChatAPP_KEY]) {
+        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWechat];
+
+    }else if([url.absoluteString containsString:kWeiBoAPP_KEY]) {
+        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWeibo];
+
+    }
+    return NO;
 }
 
 @end

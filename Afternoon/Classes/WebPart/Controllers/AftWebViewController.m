@@ -8,6 +8,7 @@
 
 #import "AftWebViewController.h"
 #import "JRShareManager.h"
+#import "MBProgressHUD.h"
 
 @interface AftWebViewController ()
 
@@ -50,6 +51,9 @@
             
             [[JRShareManager shareManager] post2SinaWeibo:shareText image:weakSelf.coverImage imageURL:nil byApp:NO completed:^(NSError *err) {
                 
+                if (!err) {
+                    
+                }
             }];
             
         }else {
@@ -60,12 +64,21 @@
     
     UIAlertAction *weChatMomentsAction = [UIAlertAction actionWithTitle:@"朋友圈" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
+        if ([[JRShareManager shareManager] canShareWeChatWithApp]) {
+            [[JRShareManager shareManager] shareToWeChatURL:weakSelf.webModel.url title:weakSelf.webModel.title description:weakSelf.webModel.previewContent image:weakSelf.coverImage scene:JRShareTypeWechatMoment completed:^(NSError *error) {
+                
+            }];
+        }
         
     }];
     
     UIAlertAction *weChatFriendAction = [UIAlertAction actionWithTitle:@"微信好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        
+        if ([[JRShareManager shareManager] canShareWeChatWithApp]) {
+            [[JRShareManager shareManager] shareToWeChatURL:weakSelf.webModel.url title:weakSelf.webModel.title description:weakSelf.webModel.previewContent image:weakSelf.coverImage scene:JRShareTypeWechat completed:^(NSError *error) {
+                
+            }];
+        }
     }];
     
     UIAlertAction *iMessageAction = [UIAlertAction actionWithTitle:@"iMessage" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -103,6 +116,8 @@
     [alertViewController addAction:weiboAction];
     [alertViewController addAction:emailAction];
     [alertViewController addAction:iMessageAction];
+    [alertViewController addAction:weChatFriendAction];
+    [alertViewController addAction:weChatMomentsAction];
     [alertViewController addAction:cancelAction];
     
     [self presentViewController:alertViewController animated:YES completion:nil];

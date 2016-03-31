@@ -10,10 +10,18 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
+
+static NSString *const kWeiBoAPP_KEY = @"1974935371";
+static NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
+
+static NSString *const kWeChatAPP_KEY = @"wx4d51bfd07ea22bba";
+static NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
+
 typedef NS_ENUM(NSInteger, JRShareType) {
     JRShareTypeWeibo = 1,
     JRShareTypeTencent = 2,
     JRShareTypeWechat = 3,
+    JRShareTypeWechatMoment = 4,
 };
 
 @interface JRShareManager : NSObject
@@ -27,6 +35,8 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 - (void)initWeiboSetting;
 
 - (void)authorizeWeibo;
+
+- (BOOL)canAuthorizedByWeibo;
 
 - (BOOL)handlerURL:(NSURL *)url type:(JRShareType)type;
 
@@ -45,5 +55,12 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 - (UIViewController *)messageControllerWithBody:(NSString *)body;
 
+//WeChat
+
+- (void)initWeChatSetting;
+
+- (BOOL)canShareWeChatWithApp;
+
+- (void)shareToWeChatURL:(NSString *)webSite title:(NSString *)title description:(NSString *)des image:(UIImage *)image scene:(JRShareType)type completed:(void(^)(NSError *))completed;
 
 @end

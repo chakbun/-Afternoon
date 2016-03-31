@@ -8,11 +8,14 @@
 
 #import "JRShareManager.h"
 #import "WeiboSDK.h"
+#import "WXApi.h"
 
-NSString *const kWeiBoAPP_KEY = @"1974935371";
-NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
+#define kWeiboAccessToken   @"kWeiboAccessToken"
+#define kWeiboUserID        @"kWeiboUserID"
+#define kWeiboRefreshToken  @"kWeiboRefreshToken"
 
-@interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
+
+@interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) NSString *wbAccessToken;
 @property (nonatomic, strong) NSString *wbUserID;
@@ -88,10 +91,70 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
     }];
 }
 
+#pragma mark - WeChat
+
+- (void)initWeChatSetting {
+    [WXApi registerApp:kWeChatAPP_KEY];
+}
+
+- (BOOL)canShareWeChatWithApp {
+    return [WXApi isWXAppSupportApi];
+}
+
+- (void)shareToWeChatURL:(NSString *)webSite title:(NSString *)title description:(NSString *)des image:(UIImage *)image scene:(JRShareType)type completed:(void(^)(NSError *))completed {
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = webSite;
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = title;
+    message.description = des;
+    message.mediaObject = ext;
+    message.mediaTagName = @"tagName";
+    message.thumbData = UIImageJPEGRepresentation(image, 0.3);
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    
+    if (type == JRShareTypeWechat) {
+        req.scene = WXSceneSession;
+    }else if(type == JRShareTypeWechatMoment) {
+        req.scene = WXSceneTimeline;
+    }
+    req.message = message;
+
+    [WXApi sendReq:req];
+}
+
+- (void)onReq:(BaseReq*)req {
+    
+}
+
+- (void)onResp:(BaseResp*)resp {
+    
+}
+
 #pragma mark - Weibo
 
 - (BOOL)isWeiBoAuthorized {
-    return self.wbAccessToken != nil;
+    
+    NSString *userToken = [[NSUserDefaults standardUserDefaults] objectForKey:kWeiboAccessToken];
+    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:kWeiboUserID];
+    NSString *refreshToken = [[NSUserDefaults standardUserDefaults] objectForKey:kWeiboRefreshToken];
+    
+    if (userToken && userID && refreshToken) {
+        
+        self.wbRefreshToken = refreshToken;
+        self.wbUserID = userID;
+        self.wbAccessToken = userToken;
+        return YES;
+    }else {
+        return NO;
+    }
+}
+
+- (BOOL)canAuthorizedByWeibo {
+    return [WeiboSDK isCanSSOInWeiboApp];
 }
 
 - (void)initWeiboSetting {
@@ -150,7 +213,21 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 }
 
 - (BOOL)handlerURL:(NSURL *)url type:(JRShareType)type {
-    return [WeiboSDK handleOpenURL:url delegate:self];
+    
+    switch (type) {
+        case JRShareTypeWeibo:
+            return [WeiboSDK handleOpenURL:url delegate:self];
+            break;
+        case JRShareTypeWechat:
+            return [WXApi handleOpenURL:url delegate:self];
+            break;
+        case JRShareTypeTencent:
+            return NO;
+            break;
+        default:
+            return NO;
+            break;
+    }
 }
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
@@ -160,83 +237,51 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     NSLog(@"============response %@ ============",response);
-    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"发送结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
-        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
+    
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class]) {
+        WBSendMessageToWeiboResponse *sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
         NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
-        if (accessToken)
-        {
+        if (accessToken){
             self.wbAccessToken = accessToken;
         }
+        
         NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
         if (userID) {
             self.wbUserID = userID;
         }
-        [alert show];
-    }
-    else if ([response isKindOfClass:WBAuthorizeResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"认证结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
         
+        [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:kWeiboAccessToken];
+        [[NSUserDefaults standardUserDefaults] setObject:userID forKey:kWeiboUserID];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+    }
+    else if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         self.wbAccessToken = [(WBAuthorizeResponse *)response accessToken];
         self.wbUserID = [(WBAuthorizeResponse *)response userID];
         self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
-        [alert show];
-    }
-    else if ([response isKindOfClass:WBPaymentResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"支付结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.payStatusCode: %@\nresponse.payStatusMessage: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBPaymentResponse *)response payStatusCode], [(WBPaymentResponse *)response payStatusMessage], NSLocalizedString(@"响应UserInfo数据", nil),response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else if([response isKindOfClass:WBSDKAppRecommendResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"邀请结果", nil);
-        NSString *message = [NSString stringWithFormat:@"accesstoken:\n%@\nresponse.StatusCode: %d\n响应UserInfo数据:%@\n原请求UserInfo数据:%@",[(WBSDKAppRecommendResponse *)response accessToken],(int)response.statusCode,response.userInfo,response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
-        [alert show];
-    }else if([response isKindOfClass:WBShareMessageToContactResponse.class])
-    {
-        NSString *title = NSLocalizedString(@"发送结果", nil);
-        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                              otherButtonTitles:nil];
+        [[NSUserDefaults standardUserDefaults] setObject:self.wbAccessToken forKey:kWeiboAccessToken];
+        [[NSUserDefaults standardUserDefaults] setObject:self.wbUserID forKey:kWeiboUserID];
+        [[NSUserDefaults standardUserDefaults] setObject:self.wbRefreshToken forKey:kWeiboRefreshToken];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }else if([response isKindOfClass:WBShareMessageToContactResponse.class]) {
+
         WBShareMessageToContactResponse* shareMessageToContactResponse = (WBShareMessageToContactResponse*)response;
         NSString* accessToken = [shareMessageToContactResponse.authResponse accessToken];
-        if (accessToken)
-        {
+        if (accessToken) {
             self.wbAccessToken = accessToken;
         }
-        NSString* userID = [shareMessageToContactResponse.authResponse userID];
+        
+        NSString *userID = [shareMessageToContactResponse.authResponse userID];
         if (userID) {
             self.wbUserID = userID;
         }
-        [alert show];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.wbAccessToken forKey:kWeiboAccessToken];
+        [[NSUserDefaults standardUserDefaults] setObject:self.wbUserID forKey:kWeiboUserID];
+        [[NSUserDefaults standardUserDefaults] setObject:self.wbRefreshToken forKey:kWeiboRefreshToken];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
     }
 }
 
