@@ -50,29 +50,12 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    NSLog(@"============ sourceApplication %@============",sourceApplication);
-
-    if ([url.absoluteString containsString:kWeChatAPP_KEY]) {
-        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWechat];
-        
-    }else if([url.absoluteString containsString:kWeiBoAPP_KEY]) {
-        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWeibo];
-        
-    }
-    return NO;
+    return [[JRShareManager shareManager] handlerURL:url];
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     
-    NSLog(@"============ options %@============",options);
-    if ([url.absoluteString containsString:kWeChatAPP_KEY]) {
-        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWechat];
-
-    }else if([url.absoluteString containsString:kWeiBoAPP_KEY]) {
-        return [[JRShareManager shareManager] handlerURL:url type:JRShareTypeWeibo];
-
-    }
-    return NO;
+    return [[JRShareManager shareManager] handlerURL:url];
 }
 
 @end

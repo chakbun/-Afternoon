@@ -10,13 +10,6 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-
-static NSString *const kWeiBoAPP_KEY = @"1974935371";
-static NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
-
-static NSString *const kWeChatAPP_KEY = @"wx4d51bfd07ea22bba";
-static NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
-
 typedef NS_ENUM(NSInteger, JRShareType) {
     JRShareTypeWeibo = 1,
     JRShareTypeTencent = 2,
@@ -38,7 +31,7 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 - (BOOL)canAuthorizedByWeibo;
 
-- (BOOL)handlerURL:(NSURL *)url type:(JRShareType)type;
+- (BOOL)handlerURL:(NSURL *)url;
 
 - (BOOL)isWeiBoAuthorized;
 

@@ -26,6 +26,7 @@
 		DF38BAF41BF5D602007D9AC3 /* AftMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = DF38BAF21BF5D602007D9AC3 /* AftMedia.m */; };
 		DF503D061CACFC1D00653EC8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF503D011CACFC1D00653EC8 /* libWeChatSDK.a */; };
 		DF503D071CACFC1D00653EC8 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = DF503D021CACFC1D00653EC8 /* read_me.txt */; };
+		DF503D0A1CAD2A7400653EC8 /* NSString+JRString.m in Sources */ = {isa = PBXBuildFile; fileRef = DF503D091CAD2A7400653EC8 /* NSString+JRString.m */; };
 		DF6302EB1C946C00003FE874 /* AftAlbumTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6302EA1C946C00003FE874 /* AftAlbumTableHeadView.m */; };
 		DFC554EE1C5E585A00AF705F /* AftWCArticleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554ED1C5E585A00AF705F /* AftWCArticleListController.m */; };
 		DFC554F11C5E58DC00AF705F /* AftWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC554F01C5E58DC00AF705F /* AftWebViewController.m */; };
@@ -105,6 +106,8 @@
 		DF503D031CACFC1D00653EC8 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		DF503D041CACFC1D00653EC8 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		DF503D051CACFC1D00653EC8 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		DF503D081CAD2A7400653EC8 /* NSString+JRString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JRString.h"; sourceTree = "<group>"; };
+		DF503D091CAD2A7400653EC8 /* NSString+JRString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JRString.m"; sourceTree = "<group>"; };
 		DF6302E91C946C00003FE874 /* AftAlbumTableHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftAlbumTableHeadView.h; sourceTree = "<group>"; };
 		DF6302EA1C946C00003FE874 /* AftAlbumTableHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftAlbumTableHeadView.m; sourceTree = "<group>"; };
 		DFC554EC1C5E585A00AF705F /* AftWCArticleListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWCArticleListController.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 			children = (
 				DFEF43211C848DF800584C7E /* UIColor+JRColor.h */,
 				DFEF43221C848DF800584C7E /* UIColor+JRColor.m */,
+				DF503D081CAD2A7400653EC8 /* NSString+JRString.h */,
+				DF503D091CAD2A7400653EC8 /* NSString+JRString.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 			files = (
 				DFC554F11C5E58DC00AF705F /* AftWebViewController.m in Sources */,
 				DFC554F41C5E5CD000AF705F /* AftWebModel.m in Sources */,
+				DF503D0A1CAD2A7400653EC8 /* NSString+JRString.m in Sources */,
 				518A09EE1C5F5D9A000B8BFE /* AftWCArticleCell.m in Sources */,
 				DFEF43231C848DF800584C7E /* UIColor+JRColor.m in Sources */,
 				DFC554EE1C5E585A00AF705F /* AftWCArticleListController.m in Sources */,

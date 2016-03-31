@@ -9,11 +9,18 @@
 #import "JRShareManager.h"
 #import "WeiboSDK.h"
 #import "WXApi.h"
+#import "NSString+JRString.h"
 
 #define kWeiboAccessToken   @"kWeiboAccessToken"
 #define kWeiboUserID        @"kWeiboUserID"
 #define kWeiboRefreshToken  @"kWeiboRefreshToken"
 
+
+NSString *const kWeiBoAPP_KEY = @"1974935371";
+NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
+
+NSString *const kWeChatAPP_KEY = @"wx4d51bfd07ea22bba";
+NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
 
 @interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate,WXApiDelegate>
 
@@ -111,7 +118,7 @@
     message.description = des;
     message.mediaObject = ext;
     message.mediaTagName = @"tagName";
-    message.thumbData = UIImageJPEGRepresentation(image, 0.3);
+    message.thumbData = UIImageJPEGRepresentation(image, 0.01);
     
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     req.bText = NO;
@@ -212,21 +219,14 @@
     
 }
 
-- (BOOL)handlerURL:(NSURL *)url type:(JRShareType)type {
-    
-    switch (type) {
-        case JRShareTypeWeibo:
-            return [WeiboSDK handleOpenURL:url delegate:self];
-            break;
-        case JRShareTypeWechat:
-            return [WXApi handleOpenURL:url delegate:self];
-            break;
-        case JRShareTypeTencent:
-            return NO;
-            break;
-        default:
-            return NO;
-            break;
+- (BOOL)handlerURL:(NSURL *)url {
+
+    if ([url.absoluteString isContainsMsg:kWeiBoAPP_KEY]) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }else if([url.absoluteString isContainsMsg:kWeChatAPP_KEY]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }else {
+        return NO;
     }
 }
 
