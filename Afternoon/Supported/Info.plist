@@ -40,6 +40,16 @@
 				<string>wx4d51bfd07ea22bba</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.after.Afternoon</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1105348516</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>002</string>
@@ -50,6 +60,27 @@
 		<string>weibosdk</string>
 		<string>weibosdk2.5</string>
 		<string>weixin</string>
+        <string>mqq</string>
+        <string>mqqapi</string>
+        <string>mqqwpa</string>
+        <string>mqqbrowser</string>
+        <string>mttbrowser</string>
+        <string>mqqOpensdkSSoLogin</string>
+        <string>mqqopensdkapiV2</string>
+        <string>mqqopensdkapiV3</string>
+        <string>wtloginmqq2</string>
+        <string>mqzone</string>
+        <string>mqzoneopensdk</string>
+        <string>mqzoneopensdkapi</string>
+        <string>mqzoneopensdkapi19</string>
+        <string>mqzoneopensdkapiV2</string>
+        <string>mqqapiwallet</string>
+        <string>mqqopensdkfriend</string>
+        <string>mqqopensdkdataline</string>
+        <string>mqqgamebindinggroup</string>
+        <string>mqqopensdkgrouptribeshare</string>
+        <string>tencentapi.qq.reqContent</string>
+        <string>tencentapi.qzone.reqContent</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

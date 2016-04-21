@@ -12,9 +12,10 @@
 
 typedef NS_ENUM(NSInteger, JRShareType) {
     JRShareTypeWeibo = 1,
-    JRShareTypeTencent = 2,
+    JRShareTypeTencentQQ = 2,
     JRShareTypeWechat = 3,
     JRShareTypeWechatMoment = 4,
+    JRShareTypeTencentQQZone = 5,
 };
 
 @interface JRShareManager : NSObject
@@ -24,6 +25,8 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 + (instancetype)shareManager;
 
 // weibo
+
++ (BOOL)isWeiboInstalled;
 
 - (void)initWeiboSetting;
 
@@ -50,10 +53,20 @@ typedef NS_ENUM(NSInteger, JRShareType) {
 
 //WeChat
 
++ (BOOL)isWeChatInstalled;
+
 - (void)initWeChatSetting;
 
 - (BOOL)canShareWeChatWithApp;
 
 - (void)shareToWeChatURL:(NSString *)webSite title:(NSString *)title description:(NSString *)des image:(UIImage *)image scene:(JRShareType)type completed:(void(^)(NSError *))completed;
+
+//Tencent
+
++ (BOOL)isQQInstalled;
+
+- (void)shareTextToQQWithCompleted:(void(^)(NSError *))completed;
+
+- (void)shareToTencentWithPageURL:(NSString *)pageURL imageURL:(NSString *)imageURL title:(NSString *)title description:(NSString *)description type:(JRShareType)type completed:(void(^)(NSError *))completed;
 
 @end

@@ -9,6 +9,9 @@
 #import "JRShareManager.h"
 #import "WeiboSDK.h"
 #import "WXApi.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterfaceObject.h>
+#import <TencentOpenAPI/QQApiInterface.h>
 #import "NSString+JRString.h"
 
 #define kWeiboAccessToken   @"kWeiboAccessToken"
@@ -22,12 +25,16 @@ NSString *const kWeiBoAPP_DIRECT_URL = @"http://www.sina.com";
 NSString *const kWeChatAPP_KEY = @"wx4d51bfd07ea22bba";
 NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
 
-@interface JRShareManager ()<WeiboSDKDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate,WXApiDelegate>
+NSString *const kTencentAPP_ID = @"1105348516";
+NSString *const kTencentAPP_KEY = @"V7wG9dYCDllLUz2g";
+
+@interface JRShareManager ()<TencentSessionDelegate,WeiboSDKDelegate,MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) NSString *wbAccessToken;
 @property (nonatomic, strong) NSString *wbUserID;
 @property (nonatomic, strong) NSString *wbRefreshToken;
 
+@property (nonatomic, strong) TencentOAuth *tencentOAuth;
 @end
 
 @implementation JRShareManager
@@ -46,7 +53,9 @@ NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+        self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:kTencentAPP_ID andDelegate:self];
+        [self initWeiboSetting];
+        [self initWeChatSetting];
     }
     return self;
 }
@@ -98,7 +107,107 @@ NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
     }];
 }
 
+#pragma mark - Tencent
+
++ (BOOL)isQQInstalled {
+    return [TencentOAuth iphoneQQInstalled];
+}
+
+- (void)shareTextToQQWithCompleted:(void(^)(NSError *))completed {
+    QQApiTextObject *txtObj = [QQApiTextObject objectWithText:@"hello world!"];
+    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:txtObj];
+    QQApiSendResultCode sent = [QQApiInterface sendReq:req];
+    completed([self errorWithSendResult:sent]);
+}
+
+- (void)shareToTencentWithPageURL:(NSString *)pageURL imageURL:(NSString *)imageURL title:(NSString *)title description:(NSString *)description type:(JRShareType)type completed:(void(^)(NSError *))completed {
+    
+    NSURL *preview = [NSURL URLWithString:imageURL];
+    NSURL *page = [NSURL URLWithString:pageURL];
+    QQApiNewsObject *imgObject = [QQApiNewsObject objectWithURL:page title:title description:description previewImageURL:preview];
+
+    if (type == JRShareTypeTencentQQZone) {
+        [imgObject setTitle:title ? : @""];
+        [imgObject setCflag:kQQAPICtrlFlagQZoneShareOnStart];
+    }
+    
+    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:imgObject];
+
+    QQApiSendResultCode sent = [QQApiInterface sendReq:req];
+    completed([self errorWithSendResult:sent]);
+
+
+}
+
+- (NSError *)errorWithSendResult:(QQApiSendResultCode)sendResult {
+    NSString *errMsg = [self handleSendResult:sendResult];
+    if (errMsg) {
+        return [NSError errorWithDomain:errMsg code:sendResult userInfo:nil];
+    }else {
+        return nil;
+    }
+}
+
+- (NSString *)handleSendResult:(QQApiSendResultCode)sendResult {
+    
+    switch (sendResult) {
+        case EQQAPIAPPNOTREGISTED: {
+            return @"App未注册";
+            break;
+        }
+        case EQQAPIMESSAGECONTENTINVALID:
+        case EQQAPIMESSAGECONTENTNULL:
+        case EQQAPIMESSAGETYPEINVALID: {
+            return @"发送参数错误";
+            break;
+        }
+        case EQQAPIQQNOTINSTALLED: {
+            return @"未安装手Q";
+
+            break;
+        }
+        case EQQAPIQQNOTSUPPORTAPI: {
+            return @"API接口不支持";
+            break;
+        }
+        case EQQAPISENDFAILD: {
+            return @"发送失败";
+            break;
+        }
+        case EQQAPISENDSUCESS:{
+            return nil;
+            break;
+        }
+        default: {
+            return @"未知错误";
+            break;
+        }
+    }
+}
+
+#pragma mark - Tencent Delegate
+
+- (void)shareTextToQZone {
+    
+}
+
+- (void)tencentDidLogin {
+    
+}
+
+- (void)tencentDidNotLogin:(BOOL)cancelled {
+    
+}
+
+- (void)tencentDidNotNetWork {
+    
+}
+
 #pragma mark - WeChat
+
++ (BOOL)isWeChatInstalled {
+    return [WXApi isWXAppInstalled];
+}
 
 - (void)initWeChatSetting {
     [WXApi registerApp:kWeChatAPP_KEY];
@@ -142,6 +251,10 @@ NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
 }
 
 #pragma mark - Weibo
+
++ (BOOL)isWeiboInstalled {
+    return [WeiboSDK isWeiboAppInstalled];
+}
 
 - (BOOL)isWeiBoAuthorized {
     
@@ -225,6 +338,8 @@ NSString *const kWeChatAPP_SECRECT = @"755ddd68eb9f7365420ffe52e0a3b3c0";
         return [WeiboSDK handleOpenURL:url delegate:self];
     }else if([url.absoluteString isContainsMsg:kWeChatAPP_KEY]) {
         return [WXApi handleOpenURL:url delegate:self];
+    }else if([url.absoluteString isContainsMsg:kTencentAPP_ID]) {
+        return [TencentOAuth HandleOpenURL:url];
     }else {
         return NO;
     }

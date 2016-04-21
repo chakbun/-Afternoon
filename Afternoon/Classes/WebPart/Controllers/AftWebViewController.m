@@ -92,6 +92,22 @@
         
     }];
     
+    UIAlertAction *qqAction = [UIAlertAction actionWithTitle:@"QQ好友" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [[JRShareManager shareManager] shareToTencentWithPageURL:weakSelf.webModel.url imageURL:weakSelf.webModel.previewImage title:weakSelf.webModel.title description:weakSelf.webModel.previewContent type:JRShareTypeTencentQQ completed:^(NSError *error) {
+            
+        }];
+        
+    }];
+    
+    UIAlertAction *qqZoneAction = [UIAlertAction actionWithTitle:@"QQ空间" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [[JRShareManager shareManager] shareToTencentWithPageURL:weakSelf.webModel.url imageURL:weakSelf.webModel.previewImage title:weakSelf.webModel.title description:weakSelf.webModel.previewContent type:JRShareTypeTencentQQZone completed:^(NSError *error) {
+            
+        }];
+        
+    }];
+    
     UIAlertAction *emailAction = [UIAlertAction actionWithTitle:@"邮件" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         if([[JRShareManager shareManager] canSendMail]) {
@@ -113,11 +129,23 @@
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
-    [alertViewController addAction:weiboAction];
+    if ([JRShareManager isWeiboInstalled]) {
+        [alertViewController addAction:weiboAction];
+    }
+    
     [alertViewController addAction:emailAction];
     [alertViewController addAction:iMessageAction];
-    [alertViewController addAction:weChatFriendAction];
-    [alertViewController addAction:weChatMomentsAction];
+    
+    if ([JRShareManager isWeChatInstalled]) {
+        [alertViewController addAction:weChatFriendAction];
+        [alertViewController addAction:weChatMomentsAction];
+    }
+
+    if ([JRShareManager isQQInstalled]) {
+        [alertViewController addAction:qqAction];
+        [alertViewController addAction:qqZoneAction];
+    }
+
     [alertViewController addAction:cancelAction];
     
     [self presentViewController:alertViewController animated:YES completion:nil];

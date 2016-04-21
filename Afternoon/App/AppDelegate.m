@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.m
 //  Afternoon
@@ -22,9 +23,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     [Bmob registerWithAppKey:@"aba90becf7c1a8f0df9f8bfbc00ad883"];
-    
-    [[JRShareManager shareManager] initWeiboSetting];
-    [[JRShareManager shareManager] initWeChatSetting];
+    [JRShareManager shareManager];
     
     return YES;
 }

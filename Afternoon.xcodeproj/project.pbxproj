@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		515A7B521C604A7700DD2CFE /* google@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 515A7B511C604A7700DD2CFE /* google@2x.png */; };
 		518A09EE1C5F5D9A000B8BFE /* AftWCArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */; };
+		518F0CA41CC8A7E500014EDC /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518F0CA21CC8A7E500014EDC /* TencentOpenAPI.framework */; };
+		518F0CA51CC8A7E500014EDC /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 518F0CA31CC8A7E500014EDC /* TencentOpenApi_IOS_Bundle.bundle */; };
+		518F0CA71CC8A9EE00014EDC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 518F0CA61CC8A9EE00014EDC /* libiconv.tbd */; };
 		51D33DB61C8450B600DFE83E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D33DB41C8450B600DFE83E /* LaunchScreen.storyboard */; };
 		51D33DB81C84515100DFE83E /* launchImage1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 51D33DB71C84515100DFE83E /* launchImage1136.png */; };
 		AC24A21745C6E749CAEE5BD1 /* libPods-Afternoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA25902DC1C6F6A56994206A /* libPods-Afternoon.a */; };
@@ -78,6 +81,9 @@
 		515A7B511C604A7700DD2CFE /* google@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google@2x.png"; sourceTree = "<group>"; };
 		518A09EC1C5F5D9A000B8BFE /* AftWCArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AftWCArticleCell.h; sourceTree = "<group>"; };
 		518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AftWCArticleCell.m; sourceTree = "<group>"; };
+		518F0CA21CC8A7E500014EDC /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		518F0CA31CC8A7E500014EDC /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		518F0CA61CC8A9EE00014EDC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		51D33DB51C8450B600DFE83E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51D33DB71C84515100DFE83E /* launchImage1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage1136.png; sourceTree = "<group>"; };
 		889AC6541F5BE4AFC73EA1B8 /* Pods-Afternoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Afternoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Afternoon/Pods-Afternoon.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				518F0CA71CC8A9EE00014EDC /* libiconv.tbd in Frameworks */,
 				DF22EC7E1CA2EF33009C843B /* ImageIO.framework in Frameworks */,
 				DF22EC7C1CA2EF1C009C843B /* MessageUI.framework in Frameworks */,
 				DF22EC7A1CA2EED0009C843B /* JavaScriptCore.framework in Frameworks */,
@@ -180,6 +187,7 @@
 				DFD402801BDBD332009EC2BB /* AVFoundation.framework in Frameworks */,
 				DFD4027E1BDBD32C009EC2BB /* MediaPlayer.framework in Frameworks */,
 				DFD4027C1BDBD1BA009EC2BB /* BmobSDK.framework in Frameworks */,
+				518F0CA41CC8A7E500014EDC /* TencentOpenAPI.framework in Frameworks */,
 				AC24A21745C6E749CAEE5BD1 /* libPods-Afternoon.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +202,15 @@
 				518A09ED1C5F5D9A000B8BFE /* AftWCArticleCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		518F0CA11CC8A7E500014EDC /* TencentSDK */ = {
+			isa = PBXGroup;
+			children = (
+				518F0CA21CC8A7E500014EDC /* TencentOpenAPI.framework */,
+				518F0CA31CC8A7E500014EDC /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = TencentSDK;
 			sourceTree = "<group>";
 		};
 		93B2B02A3932102E2FA502E3 /* Pods */ = {
@@ -356,6 +373,7 @@
 		DFD4027A1BDBD1BA009EC2BB /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				518F0CA11CC8A7E500014EDC /* TencentSDK */,
 				DF503D001CACFC1D00653EC8 /* SDK1.6.2 */,
 				DFD4027B1BDBD1BA009EC2BB /* BmobSDK.framework */,
 			);
@@ -430,6 +448,7 @@
 		F57F3AC3465F9215AA8FB97F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				518F0CA61CC8A9EE00014EDC /* libiconv.tbd */,
 				DF22EC7D1CA2EF33009C843B /* ImageIO.framework */,
 				DF22EC7B1CA2EF1C009C843B /* MessageUI.framework */,
 				DF22EC791CA2EED0009C843B /* JavaScriptCore.framework */,
@@ -475,7 +494,7 @@
 				TargetAttributes = {
 					DFD402521BDBC653009EC2BB = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = SU8WEJ4S57;
+						DevelopmentTeam = 83C74U4322;
 					};
 				};
 			};
@@ -509,6 +528,7 @@
 				DF503D071CACFC1D00653EC8 /* read_me.txt in Resources */,
 				515A7B521C604A7700DD2CFE /* google@2x.png in Resources */,
 				DFD402631BDBC653009EC2BB /* Assets.xcassets in Resources */,
+				518F0CA51CC8A7E500014EDC /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				DFD402611BDBC653009EC2BB /* Main.storyboard in Resources */,
 				51D33DB61C8450B600DFE83E /* LaunchScreen.storyboard in Resources */,
 				DFDCC8711BE8B009000B945D /* avatar.png in Resources */,
@@ -711,6 +731,7 @@
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/Afternoon/Lib/TencentSDK",
 				);
 				INFOPLIST_FILE = Afternoon/Supported/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -721,7 +742,7 @@
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Afternoon/Lib/SDK1.6.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -740,6 +761,7 @@
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/Afternoon/Lib/TencentSDK",
 				);
 				INFOPLIST_FILE = Afternoon/Supported/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -750,7 +772,7 @@
 					"$(PROJECT_DIR)/Afternoon/Lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Afternoon/Lib/SDK1.6.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.after.Afternoon000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
